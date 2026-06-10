@@ -1,0 +1,14 @@
+[
+  {
+    "id": "gioi-thieu",
+    "title": "Giới thiệu Notepad",
+    "description": "Hướng dẫn sử dụng và tổng quan về hệ thống notepad cá nhân này.",
+    "file": "notes/gioi-thieu.md"
+  },
+  {
+    "id": "kien-truc",
+    "title": "Kiến trúc Hệ thống",
+    "description": "Sơ đồ luồng dữ liệu và kiến trúc kỹ thuật được vẽ bằng Mermaid.js",
+    "file": "notes/kien-truc.md"
+  }
+]
