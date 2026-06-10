@@ -127,11 +127,75 @@ async function renderNoteDetail(noteId) {
         // Trigger Mermaid render cho các block <code class="language-mermaid">
         mermaid.run({
             querySelector: '.language-mermaid'
+        }).then(() => {
+            addCopyButtonsToCodeBlocks();
         });
         
     } catch (error) {
         app.innerHTML = `<div class="max-w-3xl mx-auto p-6 text-center text-red-500">Lỗi tải nội dung note: ${error.message}</div>`;
     }
+}
+
+// Hàm tự động thêm nút Copy vào các block code
+function addCopyButtonsToCodeBlocks() {
+    // Tìm tất cả các thẻ <pre> chứa <code>
+    const preBlocks = document.querySelectorAll('pre');
+    
+    preBlocks.forEach(pre => {
+        const code = pre.querySelector('code');
+        if (!code) return;
+
+        // Đảm bảo thẻ pre có position relative để nút copy absolute hoạt động đúng
+        pre.style.position = 'relative';
+        pre.classList.add('group'); // Để dùng hiệu ứng hover của Tailwind
+
+        // Tạo nút Copy
+        const copyBtn = document.createElement('button');
+        copyBtn.className = 'copy-btn absolute top-2 right-2 flex items-center gap-1.5 px-2.5 py-1.5 text-xs font-medium text-gray-400 bg-gray-800/90 hover:bg-gray-700 hover:text-white rounded-md opacity-0 group-hover:opacity-100 transition-all duration-200 backdrop-blur-sm shadow-sm z-10';
+        
+        // Icon clipboard + Text
+        copyBtn.innerHTML = `
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+            </svg>
+            <span>Copy</span>
+        `;
+
+        // Xử lý sự kiện click
+        copyBtn.addEventListener('click', async () => {
+            try {
+                // Lấy nội dung text thuần, loại bỏ các ký tự thừa
+                const textToCopy = code.innerText;
+                await navigator.clipboard.writeText(textToCopy);
+                
+                // Đổi trạng thái nút thành "Copied!"
+                copyBtn.innerHTML = `
+                    <svg class="w-3.5 h-3.5 text-green-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <span class="text-green-400">Copied!</span>
+                `;
+                copyBtn.classList.add('bg-gray-900');
+
+                // Trả lại trạng thái cũ sau 2 giây
+                setTimeout(() => {
+                    copyBtn.innerHTML = `
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                        </svg>
+                        <span>Copy</span>
+                    `;
+                    copyBtn.classList.remove('bg-gray-900');
+                }, 2000);
+            } catch (err) {
+                console.error('Failed to copy text: ', err);
+                copyBtn.querySelector('span').innerText = 'Error';
+            }
+        });
+
+        // Gắn nút vào thẻ <pre>
+        pre.appendChild(copyBtn);
+    });
 }
 
 // Lắng nghe sự kiện thay đổi URL và load ban đầu
