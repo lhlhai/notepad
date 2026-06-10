@@ -76,5 +76,11 @@
     "title": "Useful Links & Resources",
     "description": "Kho tàng link hay: JSON diff, JWT, Regex, Cheatsheets, Mock data, PlantUML và Google Advanced Search.",
     "file": "notes/useful-links-resources.md"
+  },
+  {
+    "id": "mcp-testing-python",
+    "title": "Test MCP Server bằng Python (FastMCP)",
+    "description": "Template code sử dụng fastmcp và StdioTransport để kết nối, list tools và call thử MCP server (ví dụ: mcp-atlassian) trước khi tích hợp.",
+    "file": "notes/mcp-server-testing-python.md"
   }
 ]
