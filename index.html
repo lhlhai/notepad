@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Notepad</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Marked.js (Render Markdown) -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <!-- Mermaid.js (Render Diagram) -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    
+    <style>
+        /* Custom Markdown Styling cho giao diện Light hiện đại */
+        .markdown-body h1 { font-size: 2em; font-weight: 700; margin-bottom: 0.5em; margin-top: 1em; color: #111827; }
+        .markdown-body h2 { font-size: 1.5em; font-weight: 600; margin-bottom: 0.5em; margin-top: 1em; color: #1f2937; border-bottom: 1px solid #e5e7eb; padding-bottom: 0.3em; }
+        .markdown-body p { margin-bottom: 1em; line-height: 1.75; color: #374151; }
+        .markdown-body ul, .markdown-body ol { margin-bottom: 1em; padding-left: 1.5em; color: #374151; list-style-type: disc; }
+        .markdown-body li { margin-bottom: 0.25em; }
+        .markdown-body code { background-color: #f3f4f6; padding: 0.2em 0.4em; border-radius: 0.375rem; font-family: ui-monospace, monospace; color: #dc2626; font-size: 0.875em; }
+        .markdown-body pre { background-color: #f9fafb; padding: 1em; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1em; border: 1px solid #e5e7eb; }
+        .markdown-body pre code { background-color: transparent; color: #1f2937; padding: 0; }
+        .markdown-body blockquote { border-left: 4px solid #3b82f6; padding-left: 1em; color: #4b5563; font-style: italic; margin-bottom: 1em; background: #f8fafc; padding: 1em; border-radius: 0 0.5rem 0.5rem 0; }
+        .markdown-body a { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }
+        .markdown-body a:hover { color: #1d4ed8; }
+        .mermaid { display: flex; justify-content: center; margin: 1.5em 0; }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen font-sans">
+    <div id="app" class="min-h-screen">
+        <!-- Nội dung sẽ được render bởi app.js -->
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
