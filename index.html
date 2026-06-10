@@ -25,6 +25,10 @@
         .markdown-body a { color: #2563eb; text-decoration: underline; text-underline-offset: 2px; }
         .markdown-body a:hover { color: #1d4ed8; }
         .mermaid { display: flex; justify-content: center; margin: 1.5em 0; }
+        /* Đảm bảo padding bên phải đủ rộng để nút Copy không đè lên text code */
+        .markdown-body pre {
+            padding-right: 3.5rem !important; 
+        }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800 min-h-screen font-sans">
