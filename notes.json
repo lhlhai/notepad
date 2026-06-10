@@ -10,5 +10,71 @@
     "title": "Kiến trúc Hệ thống",
     "description": "Sơ đồ luồng dữ liệu và kiến trúc kỹ thuật được vẽ bằng Mermaid.js",
     "file": "notes/kien-truc.md"
+  },
+   {
+    "id": "ollama-gguf-config",
+    "title": "Hướng dẫn Import và Cấu hình nâng cao Model GGUF với Ollama",
+    "description": "Tổng hợp các bước import file .gguf, tạo Modelfile, tinh chỉnh tham số (temperature, context, top_p...) và ví dụ tối ưu cho Coding/RAG.",
+    "file": "notes/ollama-import-va-cau-hinh-gguf.md"
+  },
+  {
+    "id": "git-cheatsheet",
+    "title": "Git Commands Cheatsheet",
+    "description": "Tổng hợp các lệnh Git nâng cao: reset, rebase, squash, orphan branch, xử lý conflict và quản lý branch.",
+    "file": "notes/git-commands-cheatsheet.md"
+  },
+  {
+    "id": "linux-bash",
+    "title": "Linux, Bash & Networking",
+    "description": "Các lệnh Linux thông dụng: sed, find, grep, tcpdump, quản lý process, port và nén giải nén file.",
+    "file": "notes/linux-bash-networking.md"
+  },
+  {
+    "id": "windows-powershell",
+    "title": "Windows, PowerShell & CMD",
+    "description": "Thủ thuật Windows: Kill port, Test-NetConnection, cấu hình Environment Variable, Proxy và CMD.",
+    "file": "notes/windows-powershell-cli.md"
+  },
+  {
+    "id": "cicd-devops",
+    "title": "CI/CD: Jenkins, ADO & Docker",
+    "description": "Azure DevOps YAML template, Jenkins Groovy scripts (reset build, copy job), và Docker commands.",
+    "file": "notes/cicd-devops-jenkins-ado.md"
+  },
+  {
+    "id": "web-js-automation",
+    "title": "Web, JS & Browser Automation",
+    "description": "Playwright, Appium, JS DOM tricks, Chrome DevTools, OCR Canvas, và Chrome Search Engines.",
+    "file": "notes/web-js-browser-automation.md"
+  },
+  {
+    "id": "python-testing",
+    "title": "Python & Testing Snippets",
+    "description": "Python core (*args, dict), Pytest parallel, Maven TestNG, và Python HTTP Server cho SPA.",
+    "file": "notes/python-testing-snippets.md"
+  },
+  {
+    "id": "network-security",
+    "title": "Networking, Security & OpenSSL",
+    "description": "Cấu hình Proxy (JMeter, CNTLM), tạo và convert SSL Certificate (OpenSSL), test SSL connection.",
+    "file": "notes/networking-security-openssl.md"
+  },
+  {
+    "id": "database-sql",
+    "title": "Database & SQL Queries",
+    "description": "Các câu lệnh SQL hữu ích cho Oracle (ORA_ROWSCN) và SAP HANA.",
+    "file": "notes/database-sql-queries.md"
+  },
+  {
+    "id": "dev-tools-regex",
+    "title": "Dev Tools, VS Code & Regex",
+    "description": "VS Code variables, Regex extract tiếng Việt, Excel VBA delete rows, và các lệnh zip/misc.",
+    "file": "notes/dev-tools-vscode-regex.md"
+  },
+  {
+    "id": "useful-links",
+    "title": "Useful Links & Resources",
+    "description": "Kho tàng link hay: JSON diff, JWT, Regex, Cheatsheets, Mock data, PlantUML và Google Advanced Search.",
+    "file": "notes/useful-links-resources.md"
   }
 ]
