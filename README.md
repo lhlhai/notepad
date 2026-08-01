@@ -1,17 +1,21 @@
-# Quartz v5
+# Notepad
 
-> “[One] who works with the door open gets all kinds of interruptions, but [they] also occasionally gets clues as to what the world is and what might be important.” — Richard Hamming
+Dự án này đã được chuyển đổi sang **Quartz v5**.
 
-Quartz is a set of tools that helps you publish your [digital garden](https://jzhao.xyz/posts/networked-thought) and notes as a website for free.
+## 🚀 Tính năng
+- **Quartz v5 Engine**: Tốc độ cực nhanh, hỗ trợ đầy đủ Markdown Obsidian.
+- **Tự động Deploy**: Tự động build và deploy lên GitHub Pages thông qua GitHub Actions.
+- **Giao diện tùy chỉnh**: Cấu hình tối ưu cho việc ghi chú cá nhân.
 
-🔗 Read the documentation and get started: https://quartz.jzhao.xyz/
+## 🛠 Cài đặt local
+1. Clone repo này.
+2. Cài đặt dependencies: `npm install`
+3. Chạy preview: `npx quartz build --serve`
 
-[Join the Discord Community](https://discord.gg/cRFFHYye7t)
+## 📂 Cấu trúc thư mục
+- `content/`: Chứa toàn bộ các file `.md` ghi chú của bạn.
+- `quartz.config.yaml`: Cấu hình chính của Quartz.
+- `.github/workflows/deploy.yml`: Cấu hình CI/CD.
 
-## Sponsors
-
-<p align="center">
-  <a href="https://github.com/sponsors/jackyzha0">
-    <img src="https://cdn.jsdelivr.net/gh/jackyzha0/jackyzha0/sponsorkit/sponsors.svg" />
-  </a>
-</p>
+---
+Được xây dựng với [Quartz](https://quartz.jzhao.xyz/).
