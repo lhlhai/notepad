@@ -30,4 +30,4 @@ GROUP BY SAP_PLANT_CODE, COST_CENTER;
 ```
 
 ## 🔗 Tài liệu tham khảo thêm
-- [Các mẫu SQL nâng cao (File gốc)](database-sql/sql_samples.sql)
+- [Các mẫu SQL nâng cao (File gốc)](sql_samples.sql)

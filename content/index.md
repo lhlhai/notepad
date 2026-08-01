@@ -1,19 +1,18 @@
 # 📚 Chào mừng đến với Notepad cá nhân
 
-Đây là nơi lưu trữ các ghi chú kỹ thuật, kiến thức và kinh nghiệm trong quá trình làm việc của tôi. Hệ thống được xây dựng trên nền tảng **Quartz v5**, mang lại trải nghiệm đọc mượt mà, tốc độ nhanh và khả năng tìm kiếm mạnh mẽ.
+Đây là nơi lưu trữ các ghi chú kỹ thuật, kiến thức và kinh nghiệm trong quá trình làm việc của tôi. Hệ thống được tổ chức lại theo các danh mục chuyên nghiệp để bạn dễ dàng tra cứu.
 
-## 📂 Các chủ đề chính
+## 📂 Danh mục tài liệu
 
-Bạn có thể khám phá các ghi chú thông qua thanh **Explorer** ở bên trái hoặc xem các liên kết nhanh dưới đây:
-
-| Chủ đề | Mô tả |
+| Category | Tài liệu tiêu biểu |
 | :--- | :--- |
-| 🚀 **[CI/CD & DevOps](cicd-devops-jenkins-ado.md)** | Jenkins, Azure DevOps, Docker và các quy trình tự động hóa. |
-| 💾 **[Database & SQL](database-sql-queries.md)** | Các thủ thuật SQL cho Oracle, SAP HANA và mẫu truy vấn. |
-| 🐧 **[Linux & Networking](linux-bash-networking.md)** | Lệnh Bash, cấu hình mạng và bảo mật hệ thống. |
-| 🐍 **[Python & Testing](python-testing-snippets.md)** | Snippets Python, Pytest và các kỹ thuật kiểm thử tự động. |
-| 🌐 **[Web & Browser](web-js-browser-automation.md)** | Browser automation (Playwright), JS tricks và công cụ trình duyệt. |
-| 🛠 **[Dev Tools](dev-tools-vscode-regex.md)** | Tối ưu hóa VS Code, Regex và các công cụ hỗ trợ phát triển. |
+| 🚀 **DevOps** | [Git Cheatsheet](DevOps/Git-Cheatsheet.md), [Jenkins & ADO](DevOps/Jenkins-ADO.md), [VSCode Regex](DevOps/VSCode-Regex.md) |
+| 💻 **Systems** | [Linux & Bash](Systems/Linux-Bash.md), [Windows PowerShell](Systems/Windows-PowerShell.md), [Networking & SSL](Systems/Networking-SSL.md) |
+| 🛠 **Development** | [Python Testing](Development/Python-Testing.md), [Web Automation](Development/Web-Automation.md), [MCP Testing](Development/MCP-Testing.md) |
+| 🗄️ **Database** | [SQL Queries](Database/SQL-Queries.md), [Advanced SQL Samples](Database/sql_samples.sql) |
+| 🤖 **AI & LLM** | [Ollama Config](AI/Ollama-Config.md) |
+| 🔗 **Resources** | [Useful Links](Resources/Links.md) |
+| ℹ️ **General** | [Introduction](General/Introduction.md), [Architecture](General/Architecture.md) |
 
 ## ✨ Tính năng nổi bật
 - **Tìm kiếm toàn văn**: Nhấn `Ctrl + K` để tìm kiếm bất kỳ nội dung nào.
@@ -22,4 +21,4 @@ Bạn có thể khám phá các ghi chú thông qua thanh **Explorer** ở bên 
 - **Sơ đồ Mermaid**: Các kiến trúc hệ thống được minh họa trực quan.
 
 ---
-> 💡 **Mẹo:** Sử dụng thanh tìm kiếm để tìm nhanh các đoạn code snippets hoặc lệnh command line mà bạn cần.
+> 💡 **Mẹo:** Bạn có thể sử dụng thanh **Explorer** bên trái để duyệt qua các thư mục đã được phân loại.
