@@ -90,7 +90,7 @@ Công cụ này giúp bạn dễ dàng phân tích các file log. Dán nội dun
 <div class="log-tracer-container">
   <div class="log-input-group">
     <label for="log-data">Dán nội dung log vào đây:</label>
-    <textarea id="log-data" placeholder="[2023-10-26 10:00:00] INFO: Application started.\n[2023-10-26 10:00:05] ERROR: Database connection failed.\n[2023-10-26 10:00:10] DEBUG: User 'admin' logged in."></textarea>
+    <textarea id="log-data" placeholder="[2023-10-26 10:00:00] INFO: Application started.\n[2023-10-26 10:00:05] ERROR: Database connection failed.\n[2023-10-26 10:00:10] DEBUG: User \'admin\' logged in."></textarea>
   </div>
   <div class="log-controls">
     <div>

@@ -105,10 +105,31 @@ function parseCsvToObjects(csv) {
   const lines = csv.split(/\r\n|\n/).filter(line => line.trim() !== "");
   if (lines.length === 0) return [];
 
-  const headers = lines[0].split(",").map(h => h.trim());
+  const parseLine = (line) => {
+    const result = [];
+    let inQuote = false;
+    let currentField = "";
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === "," && !inQuote) {
+        result.push(currentField.trim());
+        currentField = "";
+      } else if (char === "," && inQuote) {
+        currentField += char;
+      } else if (char === "\"" && (i === 0 || line[i-1] === "," || line[i-1] === " ")) {
+        inQuote = !inQuote;
+      } else {
+        currentField += char;
+      }
+    }
+    result.push(currentField.trim());
+    return result;
+  };
+
+  const headers = parseLine(lines[0]);
   const data = [];
   for (let i = 1; i < lines.length; i++) {
-    const values = lines[i].split(",").map(v => v.trim());
+    const values = parseLine(lines[i]);
     const obj = {};
     headers.forEach((header, index) => {
       obj[header] = values[index];

@@ -83,11 +83,35 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
 <script>
 function parseCSV() {
   const csvData = document.getElementById("csv-data").value;
-  const lines = csvData.split(/\r\n|\n/);
-  if (lines.length === 0 || (lines.length === 1 && lines[0].trim() === "")) {
+  // Robust CSV parsing to handle commas and newlines within quoted fields
+  const lines = csvData.split(/\r\n|\n/).filter(line => line.trim() !== "");
+
+  if (lines.length === 0) {
     document.getElementById("csv-output").innerHTML = "<p>Không có dữ liệu CSV để hiển thị.</p>";
     return;
   }
+
+  // Simple CSV parser that handles quoted fields (but not escaped quotes within quotes)
+  const parseLine = (line) => {
+    const result = [];
+    let inQuote = false;
+    let currentField = "";
+    for (let i = 0; i < line.length; i++) {
+      const char = line[i];
+      if (char === "," && !inQuote) {
+        result.push(currentField.trim());
+        currentField = "";
+      } else if (char === "," && inQuote) {
+        currentField += char;
+      } else if (char === "\"" && (i === 0 || line[i-1] === "," || line[i-1] === " ")) {
+        inQuote = !inQuote;
+      } else {
+        currentField += char;
+      }
+    }
+    result.push(currentField.trim());
+    return result;
+  };
 
   const table = document.createElement("table");
   table.className = "csv-table";
@@ -95,9 +119,10 @@ function parseCSV() {
   // Header
   const thead = document.createElement("thead");
   const headerRow = document.createElement("tr");
-  lines[0].split(",").forEach(header => {
+  const headers = parseLine(lines[0]);
+  headers.forEach(header => {
     const th = document.createElement("th");
-    th.textContent = header.trim();
+    th.textContent = header;
     headerRow.appendChild(th);
   });
   thead.appendChild(headerRow);
@@ -106,12 +131,12 @@ function parseCSV() {
   // Body
   const tbody = document.createElement("tbody");
   for (let i = 1; i < lines.length; i++) {
-    const line = lines[i].trim();
-    if (line === "") continue;
+    const line = lines[i];
+    if (line.trim() === "") continue;
     const dataRow = document.createElement("tr");
-    line.split(",").forEach(cell => {
+    parseLine(line).forEach(cell => {
       const td = document.createElement("td");
-      td.textContent = cell.trim();
+      td.textContent = cell;
       dataRow.appendChild(td);
     });
     tbody.appendChild(dataRow);
