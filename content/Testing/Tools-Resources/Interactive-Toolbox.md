@@ -9,137 +9,86 @@ Trang này cung cấp các công cụ tiện ích chạy trực tiếp trên tr�
 
 <div id="qa-toolbox-root">
 <style>
-:root {
-  --primary: #4f46e5;
-  --primary-hover: #4338ca;
-  --secondary: #06b6d4;
-  --success: #10b981;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --light-bg: #f9fafb;
-  --card-bg: #ffffff;
-  --border-color: #e5e7eb;
-  --text-primary: #111827;
-  --text-secondary: #6b7280;
-}
-
 .toolbox-container {
-  font-family: 'Inter', system-ui, -apple-system, sans-serif;
-  color: var(--text-primary);
+  font-family: var(--font-body), system-ui, -apple-system, sans-serif;
+  color: var(--dark);
   margin-top: 2rem;
-  background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
-  padding: 2rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
-
 .tool-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 1.5rem;
   margin-bottom: 2rem;
 }
-
 .tool-card {
-  background: var(--card-bg);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
+  background: var(--light);
+  border: 1px solid var(--gray);
+  border-radius: 8px;
   padding: 1.5rem;
   box-shadow: 0 2px 4px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s, box-shadow 0.2s;
 }
-
-.tool-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-}
-
 .tool-card h3 {
   margin-top: 0;
   margin-bottom: 1rem;
-  font-size: 1.1rem;
+  font-size: 1.2rem;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--primary);
-  font-weight: 600;
+  color: var(--secondary);
 }
-
 .tool-input-group {
   margin-bottom: 1rem;
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
 }
-
 .tool-input-group label {
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   font-weight: 600;
-  color: var(--text-secondary);
 }
-
 .tool-card input, .tool-card textarea, .tool-card select {
   width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  background: var(--light-bg);
-  color: var(--text-primary);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  transition: border-color 0.2s, box-shadow 0.2s;
-  box-sizing: border-box;
+  padding: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  background: var(--light);
+  color: var(--dark);
+  font-family: monospace;
 }
-
-.tool-card input:focus, .tool-card textarea:focus, .tool-card select:focus {
-  outline: none;
-  border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
-}
-
 .tool-card button {
-  padding: 0.6rem 1rem;
-  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-hover) 100%);
+  padding: 0.5rem 1rem;
+  background: var(--secondary);
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 4px;
   cursor: pointer;
   font-weight: 600;
-  font-size: 0.85rem;
-  transition: all 0.2s;
-  box-shadow: 0 2px 4px rgba(79, 70, 229, 0.3);
+  transition: opacity 0.2s;
 }
-
 .tool-card button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(79, 70, 229, 0.4);
+  opacity: 0.9;
 }
-
 .result-area {
   margin-top: 1rem;
   padding: 0.75rem;
-  background: var(--light-bg);
-  border-radius: 8px;
+  background: rgba(0,0,0,0.05);
+  border-radius: 4px;
   word-break: break-all;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
-  min-height: 2rem;
+  font-family: monospace;
+  font-size: 0.9rem;
+  min-height: 1.5rem;
   position: relative;
-  border: 1px solid var(--border-color);
 }
-
 .copy-btn {
   position: absolute;
   top: 5px;
   right: 5px;
-  padding: 4px 8px !important;
+  padding: 2px 6px !important;
   font-size: 0.7rem !important;
-  background: var(--secondary) !important;
-  box-shadow: none !important;
+  background: var(--gray) !important;
 }
-
 .hidden { display: none; }
 </style>
 
@@ -182,7 +131,7 @@ Click to generate...
 <!-- Base64 Converter -->
 <div class="tool-card">
 <h3>📦 Base64 Encode/Decode</h3>
-<textarea id="base64-input" placeholder="Enter text or base64..." rows="3"></textarea>
+<textarea id="base64-input" placeholder="Enter text or base64..."></textarea>
 <div style="display:flex; gap: 0.5rem; margin-top:0.5rem;">
 <button style="flex:1" onclick="base64Action('encode')">Encode</button>
 <button style="flex:1" onclick="base64Action('decode')">Decode</button>
@@ -193,7 +142,7 @@ Click to generate...
 <!-- JWT Decoder -->
 <div class="tool-card">
 <h3>🎫 JWT Decoder</h3>
-<textarea id="jwt-input" placeholder="Paste JWT here..." rows="3"></textarea>
+<textarea id="jwt-input" placeholder="Paste JWT here..."></textarea>
 <button onclick="decodeJWT()" style="margin-top:0.5rem;">Decode Payload</button>
 <div class="result-area" id="jwt-result">Payload will appear here...</div>
 </div>
@@ -221,7 +170,7 @@ Click to generate...
 <!-- JSON Formatter -->
 <div class="tool-card">
 <h3>{ } JSON Formatter</h3>
-<textarea id="json-input" placeholder="Paste messy JSON here..." rows="3"></textarea>
+<textarea id="json-input" placeholder="Paste messy JSON here..."></textarea>
 <button onclick="formatJSON()" style="margin-top:0.5rem;">Format / Prettify</button>
 <div class="result-area" id="json-result">Formatted JSON...</div>
 </div>
@@ -229,7 +178,7 @@ Click to generate...
 <!-- Hash Generator -->
 <div class="tool-card">
 <h3># Hash Generator</h3>
-<textarea id="hash-input" placeholder="Text to hash..." rows="2"></textarea>
+<textarea id="hash-input" placeholder="Text to hash..."></textarea>
 <div style="display:flex; gap: 0.5rem; margin-top:0.5rem;">
 <button style="flex:1" onclick="generateHash('SHA-256')">SHA-256</button>
 <button style="flex:1" onclick="generateHash('SHA-1')">SHA-1</button>
@@ -258,7 +207,7 @@ Click to generate...
 <!-- URL Encoder/Decoder -->
 <div class="tool-card">
 <h3>🔗 URL Encoder/Decoder</h3>
-<textarea id="url-input" placeholder="Enter URL or text..." rows="2"></textarea>
+<textarea id="url-input" placeholder="Enter URL or text..."></textarea>
 <div style="display:flex; gap: 0.5rem; margin-top:0.5rem;">
 <button style="flex:1" onclick="urlAction('encode')">Encode</button>
 <button style="flex:1" onclick="urlAction('decode')">Decode</button>
@@ -412,7 +361,7 @@ Click to generate...
       if (!text) return;
       const url = `https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=${encodeURIComponent(text)}`;
       const resultDiv = document.getElementById('qr-result');
-      resultDiv.innerHTML = `<img src="${url}" alt="QR Code" style="border: 1px solid var(--border-color); padding: 5px; background: white; border-radius: 8px;"><br><small>${text}</small>`;
+      resultDiv.innerHTML = `<img src="${url}" alt="QR Code" style="border: 1px solid var(--gray); padding: 5px; background: white;"><br><small>${text}</small>`;
     }
 
     // 11. Cron Parser
