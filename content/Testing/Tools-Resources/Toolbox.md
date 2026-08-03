@@ -43,3 +43,24 @@ Thế giới công nghệ thay đổi mỗi ngày, hãy giữ cho mình luôn "u
 
 ---
 > 🚀 **Elite Tip:** Hãy tạo một folder Bookmark trên trình duyệt và lưu tất cả các link này lại. Bạn sẽ thấy tốc độ làm việc của mình thay đổi đáng kể!
+
+## 5. Công cụ phát triển (Development Tools)
+Dành cho các Tester muốn đào sâu vào code và tự động hóa.
+
+| Công cụ | Công dụng chính | Pro-Tip |
+| :--- | :--- | :--- |
+| **Visual Studio Code** | Editor đa năng | Cài đặt các extension như Prettier, ESLint để giữ code sạch và nhất quán. |
+| **DB Browser for SQLite** | Quản lý SQLite DB | Hữu ích khi làm việc với các ứng dụng di động hoặc desktop sử dụng SQLite cục bộ. |
+
+---
+
+## 6. Tài nguyên học tập chuyên sâu
+Nâng cao kiến thức và kỹ năng kiểm thử của bạn.
+
+- **[Software Testing Help](https://www.softwaretestinghelp.com/):** Một trong những blog lớn nhất về kiểm thử phần mềm, cung cấp hướng dẫn chi tiết từ cơ bản đến nâng cao.
+- **[Automation Panda](https://automationpanda.com/):** Blog của Andy Knight, chuyên sâu về kiểm thử tự động hóa và chiến lược QA.
+- **[Udemy/Coursera](https://www.udemy.com/, https://www.coursera.org/):** Các nền tảng khóa học trực tuyến với nhiều khóa học chất lượng về kiểm thử, automation, performance testing.
+
+---
+
+> 💡 **Thử thách:** Hãy chọn một công cụ bạn chưa từng dùng trong danh sách này, tìm hiểu sâu về nó và áp dụng vào dự án hiện tại của bạn. Bạn sẽ bất ngờ với hiệu quả mà nó mang lại!
