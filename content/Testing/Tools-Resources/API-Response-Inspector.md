@@ -1,5 +1,4 @@
 ---
-title: 🔍 API Response Inspector
 description: Phân tích cấu trúc JSON response từ API — đếm fields, kiểm tra kiểu dữ liệu, tìm null/undefined, và validate cấu trúc. Hữu ích khi debug API testing.
 ---
 

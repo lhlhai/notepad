@@ -1,5 +1,4 @@
 ---
-title: 🐛 Bug Report Generator
 description: Form tạo Bug Report chuẩn template công nghiệp. Điền thông tin, preview kết quả, và copy nhanh để paste vào Jira/GitHub.
 ---
 

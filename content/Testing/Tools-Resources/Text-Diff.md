@@ -1,5 +1,4 @@
 ---
-title: 📝 Text Diff Compare
 description: So sánh hai đoạn văn bản, highlight những dòng thêm, xóa và thay đổi. Hữu ích khi kiểm tra config files, log outputs, hoặc nội dung trang web.
 ---
 

@@ -1,5 +1,4 @@
 ---
-title: 🎨 Contrast Checker
 description: Kiểm tra độ tương phản màu sắc giữa foreground và background. Đảm bảo accessibility (WCAG AA/AAA) cho UI testing.
 ---
 

@@ -1,5 +1,4 @@
 ---
-title: ↔️ CSV Compare
 description: So sánh hai file CSV để tìm ra sự khác biệt về dữ liệu. Hữu ích cho việc kiểm tra dữ liệu trước và sau khi deploy, hoặc so sánh các bộ dữ liệu khác nhau.
 ---
 

@@ -1,5 +1,4 @@
 ---
-title: 📜 Log Tracer
 description: Phân tích log nhanh chóng, highlight các lỗi và lọc theo từ khóa. Hữu ích cho việc debug và kiểm tra log hệ thống.
 ---
 

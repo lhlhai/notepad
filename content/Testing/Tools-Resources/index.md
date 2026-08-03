@@ -1,5 +1,4 @@
 ---
-title: 🛠️ Tools & Resources
 description: Tổng hợp các công cụ, tiện ích và tài nguyên hữu ích dành cho QA/Tester để tối ưu hóa quy trình làm việc.
 ---
 
