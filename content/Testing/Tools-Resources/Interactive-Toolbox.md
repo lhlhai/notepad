@@ -199,6 +199,17 @@ Trang này cung cấp các công cụ tiện ích chạy trực tiếp trên tr�
         <div class="result-area" id="cron-result">Explanation will appear here...</div>
       </div>
 
+      <!-- URL Encoder/Decoder -->
+      <div class="tool-card">
+        <h3>🔗 URL Encoder/Decoder</h3>
+        <textarea id="url-input" placeholder="Enter URL or text..."></textarea>
+        <div style="display:flex; gap: 0.5rem; margin-top:0.5rem;">
+          <button style="flex:1" onclick="urlAction('encode')">Encode</button>
+          <button style="flex:1" onclick="urlAction('decode')">Decode</button>
+        </div>
+        <div class="result-area" id="url-result">Result will appear here...</div>
+      </div>
+
     </div>
   </div>
 
@@ -361,6 +372,20 @@ Trang này cung cấp các công cụ tiện ích chạy trực tiếp trên tr�
         return `${units[i]}: ${desc}`;
       }).join('\n');
       updateResult('cron-result', explanation);
+    }
+
+    // 12. URL Encoder/Decoder
+    function urlAction(type) {
+      const input = document.getElementById('url-input').value;
+      try {
+        if (type === 'encode') {
+          updateResult('url-result', encodeURIComponent(input));
+        } else {
+          updateResult('url-result', decodeURIComponent(input));
+        }
+      } catch (e) {
+        updateResult('url-result', "Error: Invalid input for " + type);
+      }
     }
   </script>
 </div>
