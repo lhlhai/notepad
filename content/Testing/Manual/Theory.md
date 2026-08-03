@@ -1,5 +1,5 @@
 ---
-title: "🍀 Manual Testing"
+title: "🍀 Manual Theory"
 description: "Lý thuyết cốt lõi về kiểm thử thủ công, nền tảng cho mọi Tester chuyên nghiệp."
 ---
 

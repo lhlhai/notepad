@@ -1,6 +1,6 @@
 ---
-title: "🚀 Automation Testing"
-description: "Việc xây dựng một khung làm việc (Framework) vững chắc là yếu tố quyết định sự thành công lâu dài của dự án tự động h..."
+title: "🚀 Automation Frameworks"
+description: "Việc xây dựng một khung làm việc (Framework) vững chắc là yếu tố quyết định sự thành công lâu dài của dự án tự động hóa."
 ---
 
 # 🏗️ Automation Testing: Advanced Framework Architectures

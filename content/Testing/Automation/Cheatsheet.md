@@ -1,6 +1,6 @@
 ---
-title: "🎈 Automation Testing"
-description: "Tài liệu này cung cấp các chỉ dẫn nhanh và các đoạn mã thực dụng cho công việc tự động hóa hàng ngày, tập trung vào h..."
+title: "🎈 Automation Cheatsheet"
+description: "Tài liệu này cung cấp các chỉ dẫn nhanh và các đoạn mã thực dụng cho công việc tự động hóa hàng ngày, tập trung vào hiệu suất và tính ổn định của mã nguồn."
 ---
 
 # ⚡ Automation Testing: Quick Reference & Snippets

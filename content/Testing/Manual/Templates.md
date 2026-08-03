@@ -1,5 +1,5 @@
 ---
-title: "🛠️ Manual Testing"
+title: "🛠️ Manual Templates"
 description: "Tổng hợp các mẫu tài liệu dùng hàng ngày."
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: "💪 API Testing"
-description: "Tài liệu tra cứu nhanh các mã trạng thái, công cụ và đoạn mã mẫu để thực hiện kiểm thử API một cách hiệu quả và chuyê..."
+title: "💪 API Cheatsheet"
+description: "Tài liệu tra cứu nhanh các mã trạng thái, công cụ và đoạn mã mẫu để thực hiện kiểm thử API một cách hiệu quả và chuyên nghiệp."
 ---
 
 # ⚡ API Testing: Reference Cheatsheet

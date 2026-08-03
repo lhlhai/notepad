@@ -1,5 +1,5 @@
 ---
-title: "🍀 Automation Testing"
+title: "🍀 Automation Theory"
 description: "Kiến thức chiến lược để xây dựng hệ thống tự động hóa hiệu quả."
 ---
 
