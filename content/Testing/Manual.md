@@ -1,67 +1,77 @@
-# 🧪 Manual Testing: Kiến thức từ Cơ bản đến Nâng cao
+# 🧪 Manual Testing Pro Max: Practical Guide & Templates
 
-Manual Testing (Kiểm thử thủ công) là quá trình kiểm tra phần mềm bằng tay để tìm lỗi mà không sử dụng các công cụ tự động hóa. Đây là bước nền tảng và cực kỳ quan trọng trong mọi dự án phần mềm.
+Tài liệu này không chỉ là lý thuyết, mà là bộ công cụ thực chiến để sử dụng hàng ngày trong công việc kiểm thử thủ công.
 
-## 1. Tổng quan về Manual Testing
-Manual Testing cho phép kiểm thử viên (Tester) đóng vai trò là người dùng cuối để đánh giá trải nghiệm, giao diện và tính logic của ứng dụng.
+## 1. 📝 Test Case Template (Chuẩn Industry)
+Dùng template này để viết test case nhanh và chuyên nghiệp.
 
-### Tại sao Manual Testing vẫn quan trọng?
-- **Khám phá (Exploratory Testing):** Con người có khả năng phát hiện các lỗi bất ngờ mà script tự động không thể bao quát.
-- **Trải nghiệm người dùng (UX):** Đánh giá sự thân thiện, màu sắc, bố cục - điều mà máy móc chưa làm tốt.
-- **Chi phí thấp cho dự án nhỏ:** Không mất thời gian và chi phí đầu tư vào framework tự động hóa ban đầu.
-- **Tính linh hoạt:** Có thể thực hiện ngay khi có thay đổi nhỏ mà không cần cập nhật code kiểm thử.
-
----
-
-## 2. Quy trình kiểm thử phần mềm (STLC - Software Testing Life Cycle)
-Một quy trình Manual Testing chuẩn bao gồm các giai đoạn:
-
-1. **Phân tích yêu cầu (Requirement Analysis):** Hiểu rõ spec, xác định những gì cần kiểm thử.
-2. **Lập kế hoạch (Test Planning):** Xác định mục tiêu, phạm vi, nguồn lực và lịch trình.
-3. **Thiết kế kịch bản (Test Case Development):** Viết các bước thực hiện, dữ liệu đầu vào và kết quả mong đợi.
-4. **Thiết lập môi trường (Environment Setup):** Chuẩn bị phần cứng, phần mềm và dữ liệu giả lập.
-5. **Thực thi kiểm thử (Test Execution):** Chạy các test case và ghi nhận kết quả.
-6. **Đóng chu trình (Test Cycle Closure):** Tổng kết, báo cáo và đánh giá chất lượng.
+| ID | Title | Pre-conditions | Steps | Expected Result | Priority | Type |
+| :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| TC_01 | Verify Login with valid info | User is on Login page | 1. Input Email<br>2. Input Pass<br>3. Click Login | Redirect to Dashboard | High | Functional |
+| TC_02 | Verify Password Masking | User is on Login page | 1. Input any text into Pass field | Text is hidden (dots/stars) | Medium | Security |
 
 ---
 
-## 3. Các loại kiểm thử thủ công phổ biến
-| Loại kiểm thử | Mục tiêu |
-| :--- | :--- |
-| **Unit Testing** | Kiểm tra từng đơn vị mã nguồn nhỏ nhất (thường do Dev làm). |
-| **Integration Testing** | Kiểm tra sự tương tác giữa các module với nhau. |
-| **System Testing** | Kiểm tra toàn bộ hệ thống sau khi tích hợp đầy đủ. |
-| **Acceptance Testing (UAT)** | Kiểm tra xem hệ thống có đáp ứng yêu cầu của khách hàng không. |
-| **Smoke Testing** | Kiểm tra nhanh các tính năng quan trọng nhất để đảm bảo build ổn định. |
-| **Regression Testing** | Kiểm tra lại các tính năng cũ sau khi có sự thay đổi code mới. |
+## 2. 🐞 Bug Report Template
+Một bug report tốt giúp Dev sửa nhanh hơn 50%.
+
+```markdown
+### [BUG] - {Tiêu đề ngắn gọn, súc tích}
+**Environment:** Staging / Production / iOS 17.2 / Chrome 120
+**Severity:** Critical / High / Medium / Low
+**Priority:** P0 / P1 / P2 / P3
+
+**Steps to Reproduce:**
+1. Go to URL '...'
+2. Click on '...'
+3. Input '...'
+4. Observed '...'
+
+**Expected Result:**
+- {Kết quả mong đợi đúng theo spec}
+
+**Actual Result:**
+- {Kết quả sai hiện tại}
+
+**Attachments:**
+- [Link to Screenshot/Video]
+- [Log file/Console output]
+```
 
 ---
 
-## 4. Kỹ thuật thiết kế Test Case (Test Design Techniques)
-Để tối ưu số lượng test case mà vẫn đảm bảo độ bao phủ, cần áp dụng các kỹ thuật:
-- **Phân vùng tương đương (Equivalence Partitioning):** Chia dữ liệu vào thành các nhóm tương đương.
-- **Phân tích giá trị biên (Boundary Value Analysis):** Tập trung vào các giá trị tại biên (min, max, cận biên).
-- **Bảng quyết định (Decision Table):** Dùng cho các logic phức tạp với nhiều điều kiện kết hợp.
-- **Đoán lỗi (Error Guessing):** Dựa trên kinh nghiệm để dự đoán các lỗi hay xảy ra.
+## 3. ⚡ Cheatsheet: Test Design Techniques
+Áp dụng nhanh khi brainstorm test case:
+- **Boundary Value Analysis (BVA):** Luôn test `Min-1`, `Min`, `Min+1`, `Max-1`, `Max`, `Max+1`.
+- **Equivalence Partitioning (EP):** Chỉ cần test 1 giá trị đại diện cho mỗi nhóm (vd: tuổi 1-18, 19-60, 61+).
+- **State Transition:** Vẽ sơ đồ trạng thái của Object (vd: Order: New -> Paid -> Shipping -> Delivered).
+- **Error Guessing:** Test các ký tự đặc biệt (`!@#$%^&*`), để trống, SQL Injection basic (`' OR 1=1 --`), XSS (`<script>alert(1)</script>`).
 
 ---
 
-## 5. Quy trình quản lý lỗi (Bug Life Cycle)
-Khi phát hiện lỗi, Tester cần báo cáo theo quy trình:
-1. **New:** Lỗi mới được phát hiện.
-2. **Assigned:** Giao cho Developer xử lý.
-3. **Open:** Developer đang nghiên cứu và sửa lỗi.
-4. **Fixed:** Lỗi đã được sửa.
-5. **Pending Retest:** Chờ Tester kiểm tra lại.
-6. **Verified/Closed:** Lỗi đã được xác nhận là đã sửa xong.
-7. **Reopen:** Nếu lỗi vẫn còn sau khi sửa.
+## 4. 💡 Pro Tips cho Daily Tasks
+- **Sử dụng Extension:**
+    - `Fake Filler`: Tự động điền form nhanh.
+    - `GoFullPage`: Chụp ảnh toàn bộ trang web.
+    - `JSON Viewer`: Xem log API dễ dàng hơn.
+- **Mindset:** Đừng chỉ tìm "Lỗi", hãy tìm "Điểm yếu" của hệ thống.
+- **Exploratory Testing:** Dành 30p mỗi ngày để "phá" hệ thống theo cách không có trong kịch bản.
 
 ---
 
-## 6. Kỹ năng cần thiết của một Manual Tester
-- **Tư duy phân tích:** Khả năng nhìn nhận vấn đề từ nhiều góc độ.
-- **Sự tỉ mỉ:** Không bỏ sót các chi tiết nhỏ nhất.
-- **Giao tiếp:** Truyền đạt lỗi một cách khéo léo và chính xác cho Team Dev.
-- **Quản lý thời gian:** Sắp xếp ưu tiên các tính năng quan trọng trước.
+## 5. 📊 Test Execution Workflow (Mermaid)
+```mermaid
+graph TD
+    A[Start Sprint] --> B{Review Specs}
+    B --> C[Write Test Cases]
+    C --> D[Execute Tests]
+    D --> E{Bug Found?}
+    E -- Yes --> F[Report Bug]
+    F --> G[Dev Fixes]
+    G --> D
+    E -- No --> H[Regression Test]
+    H --> I[Sign-off / Report]
+```
 
-> 💡 **Mẹo:** Luôn đặt câu hỏi "Nếu tôi làm thế này thì điều gì sẽ xảy ra?" để tìm ra những case hiếm (edge cases).
+---
+> 🚀 **AI Prompt Tip:** Khi nhờ AI viết Test Case, hãy copy template ở trên và nói: *"Dựa trên spec sau, hãy viết Test Case theo template tôi cung cấp: [Dán Spec]"*

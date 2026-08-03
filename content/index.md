@@ -7,7 +7,7 @@
 | Category | Tài liệu tiêu biểu |
 | :--- | :--- |
 | 🚀 **DevOps** | [Git Cheatsheet](DevOps/Git-Cheatsheet.md), [Jenkins & ADO](DevOps/Jenkins-ADO.md), [VSCode Regex](DevOps/VSCode-Regex.md) |
-| 🧪 **Tester** | [Manual Testing](Testing/Manual.md), [Automation Testing](Testing/Automation.md) |
+| 🧪 **Tester** | [Manual](Testing/Manual.md), [Automation](Testing/Automation.md), [API](Testing/API.md) |
 | 💻 **Systems** | [Linux & Bash](Systems/Linux-Bash.md), [Windows PowerShell](Systems/Windows-PowerShell.md), [Networking & SSL](Systems/Networking-SSL.md) |
 | 🛠 **Development** | [Python Testing](Development/Python-Testing.md), [Web Automation](Development/Web-Automation.md), [MCP Testing](Development/MCP-Testing.md) |
 | 🗄️ **Database** | [SQL Queries](Database/SQL-Queries.md), [Advanced SQL Samples](Database/sql_samples.sql) |
