@@ -15,7 +15,7 @@ Công cụ và kỹ năng bổ trợ để làm việc thông minh hơn, nhanh h
 - **[AI for Testing](./AI-Assistant/Prompts.md)**: Nghệ thuật đặt câu hỏi (Prompt Engineering) để tận dụng AI trong việc viết test case, phân tích log và tạo dữ liệu giả.
 - **[Database Testing](./Database-Testing/SQL-Snippets.md)**: Các câu lệnh SQL thực chiến để kiểm tra tính toàn vẹn dữ liệu, verify kết quả từ backend và chuẩn bị môi trường.
 - **[Performance Quick Check](./Performance/Quick-Check.md)**: Hướng dẫn nhanh cách kiểm tra khả năng chịu tải và hiệu năng của hệ thống bằng các công cụ nhẹ nhàng.
-- **[The Ultimate Toolbox](./Tools-Resources/Toolbox.md)**: Danh sách các tiện ích mở rộng, phần mềm và **[Interactive Toolbox](./Tools-Resources/Interactive-Toolbox.md)** để chạy tool trực tiếp.
+- **[Tools & Resources](./Tools-Resources/index.md)**: Tổng hợp các tiện ích mở rộng, phần mềm chuyên dụng và bộ công cụ **[Interactive Toolbox](./Tools-Resources/Interactive-Toolbox.md)** chạy trực tiếp trên trình duyệt.
 
 ### 📂 Tầng 3: Đỉnh cao chuyên gia (Super Elite)
 Kiến thức nâng cao dành cho Senior, Lead QA và Automation Architect để xây dựng hệ thống kiểm thử bền vững.
