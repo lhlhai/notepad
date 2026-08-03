@@ -1,3 +1,8 @@
+---
+title: "💎 Development for"
+description: "Kỹ năng lập trình không chỉ dành cho Developer. Đối với QA/Tester, lập trình giúp tự động hóa các tác vụ lặp đi lặp l..."
+---
+
 # 🛠 Development for Testers Hub
 
 Kỹ năng lập trình không chỉ dành cho Developer. Đối với QA/Tester, lập trình giúp tự động hóa các tác vụ lặp đi lặp lại và xây dựng các công cụ hỗ trợ kiểm thử mạnh mẽ.

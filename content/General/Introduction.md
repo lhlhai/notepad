@@ -1,3 +1,8 @@
+---
+title: "🚀 Chào mừng"
+description: "Đây là trang notepad readonly, chạy hoàn toàn trên GitHub Pages mà không cần backend."
+---
+
 # 📚 Chào mừng đến với Notepad
 
 Đây là trang notepad **readonly**, chạy hoàn toàn trên GitHub Pages mà không cần backend.

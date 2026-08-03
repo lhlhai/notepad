@@ -1,5 +1,6 @@
 ---
-description: Xem và chỉnh sửa dữ liệu CSV trực tiếp trên trình duyệt. Hỗ trợ phân tích cấu trúc, lọc và xuất dữ liệu.
+title: "✅ CSV Viewer"
+description: "Xem và chỉnh sửa dữ liệu CSV trực tiếp trên trình duyệt. Hỗ trợ phân tích cấu trúc, lọc và xuất dữ liệu."
 ---
 
 # 📊 CSV Viewer & Editor

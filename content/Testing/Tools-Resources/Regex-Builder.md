@@ -1,5 +1,6 @@
 ---
-description: Test và xây dựng Regular Expression với các mẫu phổ biến cho Tester. Có sẵn templates cho email, phone, password, URL và nhiều pattern thường dùng.
+title: "💎 Regex Builder"
+description: "Test và xây dựng Regular Expression với các mẫu phổ biến cho Tester. Có sẵn templates cho email, phone, password, URL và nhiều pattern thường dùng."
 ---
 
 # 🎯 Regex Builder & Tester

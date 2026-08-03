@@ -1,3 +1,8 @@
+---
+title: "🍀 Manual Testing"
+description: "Lý thuyết cốt lõi về kiểm thử thủ công, nền tảng cho mọi Tester chuyên nghiệp."
+---
+
 # 📖 Manual Testing: Core Theory
 
 Lý thuyết cốt lõi về kiểm thử thủ công, nền tảng cho mọi Tester chuyên nghiệp.

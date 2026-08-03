@@ -1,3 +1,8 @@
+---
+title: "✅ Git Commands"
+description: "git branch | grep -v \"main\" | xargs git branch -D"
+---
+
 # 🌿 Git Commands Cheatsheet
 
 ## 1. Branch Management

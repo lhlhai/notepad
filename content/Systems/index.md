@@ -1,3 +1,8 @@
+---
+title: "🎨 Systems Infrastructure"
+description: "Kiến thức về hệ điều hành, mạng và hạ tầng công nghệ thông tin - nền tảng để vận hành mọi ứng dụng phần mềm."
+---
+
 # 💻 Systems & Infrastructure Hub
 
 Kiến thức về hệ điều hành, mạng và hạ tầng công nghệ thông tin - nền tảng để vận hành mọi ứng dụng phần mềm.

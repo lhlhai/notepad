@@ -1,3 +1,8 @@
+---
+title: "⚡ DevOps QA"
+description: "Kiến thức về vận hành, CI/CD và các công cụ giúp tối ưu hóa quy trình phát triển và kiểm thử phần mềm."
+---
+
 # 🚀 DevOps & QA Ops Hub
 
 Kiến thức về vận hành, CI/CD và các công cụ giúp tối ưu hóa quy trình phát triển và kiểm thử phần mềm.

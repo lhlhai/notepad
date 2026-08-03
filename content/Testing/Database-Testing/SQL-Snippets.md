@@ -1,3 +1,8 @@
+---
+title: "🎉 SQL for"
+description: "Trong công việc hàng ngày, Tester cần truy cập trực tiếp vào Database để xác minh rằng dữ liệu được lưu trữ đúng như ..."
+---
+
 # 🗄️ SQL for Testers: Data Verification Mastery
 
 Trong công việc hàng ngày, Tester cần truy cập trực tiếp vào Database để xác minh rằng dữ liệu được lưu trữ đúng như những gì hiển thị trên giao diện (UI).

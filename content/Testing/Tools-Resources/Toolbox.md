@@ -1,5 +1,6 @@
 ---
-description: Danh sách các công cụ, tiện ích và tài nguyên chọn lọc giúp tối ưu hóa hiệu suất kiểm thử, từ trình duyệt extensions đến các ứng dụng chuyên dụng.
+title: "🧠 The Ultimate"
+description: "Danh sách các công cụ, tiện ích và tài nguyên chọn lọc giúp tối ưu hóa hiệu suất kiểm thử, từ trình duyệt extensions đến các ứng dụng chuyên dụng."
 ---
 
 # 🛠️ The Ultimate Tester's Toolbox: Work 3x Faster

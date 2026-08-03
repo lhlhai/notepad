@@ -1,3 +1,8 @@
+---
+title: "🍀 API Testing"
+description: "API Testing cho phép kiểm tra logic nghiệp vụ ở tầng dưới, giúp phát hiện lỗi sớm hơn và hiệu quả hơn so với kiểm thử..."
+---
+
 # 🔌 API Testing Hub
 
 API Testing cho phép kiểm tra logic nghiệp vụ ở tầng dưới, giúp phát hiện lỗi sớm hơn và hiệu quả hơn so với kiểm thử giao diện (UI).

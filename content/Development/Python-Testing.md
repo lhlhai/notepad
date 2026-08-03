@@ -1,3 +1,8 @@
+---
+title: "🛠️ Python Testing"
+description: "'a_a': 'A',"
+---
+
 # 🐍 Python & Testing Snippets
 
 ## 1. Python Core

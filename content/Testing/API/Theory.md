@@ -1,3 +1,8 @@
+---
+title: "🚀 API Testing"
+description: "Kiểm thử giao diện lập trình ứng dụng (API) tập trung vào việc xác minh tính chính xác, hiệu suất và bảo mật của các ..."
+---
+
 # 📖 API Testing: Technical Foundation
 
 Kiểm thử giao diện lập trình ứng dụng (API) tập trung vào việc xác minh tính chính xác, hiệu suất và bảo mật của các tầng logic nghiệp vụ mà không cần thông qua giao diện người dùng.

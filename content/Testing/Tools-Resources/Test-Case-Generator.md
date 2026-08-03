@@ -1,5 +1,6 @@
 ---
-description: Form tạo Test Case chuẩn template công nghiệp. Hỗ trợ nhiều loại test, auto-generate test ID, và export nhanh.
+title: "🎈 Test Case"
+description: "Form tạo Test Case chuẩn template công nghiệp. Hỗ trợ nhiều loại test, auto-generate test ID, và export nhanh."
 ---
 
 # ✅ Test Case Generator

@@ -1,3 +1,8 @@
+---
+title: "🎨 Database SQL"
+description: "SELECT MAX(ORA_ROWSCN) FROM your_table WHERE ...;"
+---
+
 # 🗄️ Database & SQL Queries
 
 ## 1. Oracle

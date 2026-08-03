@@ -1,3 +1,8 @@
+---
+title: "🛠️ Networking Security"
+description: "openssl genpkey -algorithm RSA -out private.key"
+---
+
 # 🔒 Networking, Security & OpenSSL
 
 ## 1. OpenSSL & Certificates

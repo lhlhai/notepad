@@ -1,3 +1,8 @@
+---
+title: "💪 CICD Jenkins"
+description: "parameters:"
+---
+
 # 🚀 CI/CD: Jenkins, ADO & Docker
 
 ## 1. Azure DevOps (ADO) Template

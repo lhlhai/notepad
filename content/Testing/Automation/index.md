@@ -1,3 +1,8 @@
+---
+title: "🎈 Automation Testing"
+description: "Mục này tập trung vào việc sử dụng công cụ và mã nguồn để tự động hóa quá trình kiểm thử, giúp tăng tốc độ và độ tin ..."
+---
+
 # 🤖 Automation Testing Hub
 
 Mục này tập trung vào việc sử dụng công cụ và mã nguồn để tự động hóa quá trình kiểm thử, giúp tăng tốc độ và độ tin cậy của việc đảm bảo chất lượng phần mềm.

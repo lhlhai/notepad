@@ -1,3 +1,8 @@
+---
+title: "🧪 Developer Tools"
+description: "Tổng hợp các biến VS Code, Regex và các đoạn mã hữu ích cho Developer."
+---
+
 # 🛠️ Developer Tools, VS Code & Regex
 
 ## 1. VS Code Variables

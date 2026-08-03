@@ -1,3 +1,8 @@
+---
+title: "🚀 Manual Testing"
+description: "Bộ quy tắc nhanh để áp dụng khi brainstorm test case."
+---
+
 # ⚡ Manual Testing: Quick Cheatsheet
 
 Bộ quy tắc nhanh để áp dụng khi brainstorm test case.

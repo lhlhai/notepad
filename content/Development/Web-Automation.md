@@ -1,3 +1,8 @@
+---
+title: "🎉 Web JavaScript"
+description: "npm init playwright@latest"
+---
+
 # 🌐 Web, JavaScript & Browser Automation
 
 ## 1. Browser Automation (Playwright & Appium)

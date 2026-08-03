@@ -1,3 +1,8 @@
+---
+title: "🧠 Windows PowerShell"
+description: "Test-NetConnection -Port 800 -ComputerName 192.168.0.1 -InformationLevel Detailed"
+---
+
 # 🪟 Windows, PowerShell & CMD
 
 ## 1. Network & Ports

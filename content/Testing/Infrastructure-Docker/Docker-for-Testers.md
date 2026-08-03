@@ -1,3 +1,8 @@
+---
+title: "🎯 Testing Infrastructure"
+description: "Trong kỷ nguyên Cloud-native, một Tester \"Super\" phải biết cách làm chủ môi trường kiểm thử thông qua Docker để đảm b..."
+---
+
 # 🐳 Testing Infrastructure: Docker for QA Engineers
 
 Trong kỷ nguyên Cloud-native, một Tester "Super" phải biết cách làm chủ môi trường kiểm thử thông qua Docker để đảm bảo tính nhất quán và khả năng mở rộng.

@@ -1,3 +1,8 @@
+---
+title: "💎 Test MCP"
+description: "Template code sử dụng thư viện fastmcp để kết nối, liệt kê tools và gọi thử MCP server qua StdioTransport. Rất hữu íc..."
+---
+
 # 🧪 Hướng dẫn Test MCP Server bằng Python (FastMCP & StdioTransport)
 
 Template code sử dụng thư viện `fastmcp` để kết nối, liệt kê tools và gọi thử MCP server qua `StdioTransport`. Rất hữu ích để debug và kiểm tra MCP server trước khi implement vào ứng dụng chính (ví dụ: Claude Desktop, Cursor, hoặc custom app).

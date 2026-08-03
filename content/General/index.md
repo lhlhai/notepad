@@ -1,3 +1,8 @@
+---
+title: "🔋 ℹ General"
+description: "Thông tin tổng quan về hệ thống ghi chú và các nguyên tắc kiến trúc được áp dụng trong dự án này."
+---
+
 # ℹ️ General Information Hub
 
 Thông tin tổng quan về hệ thống ghi chú và các nguyên tắc kiến trúc được áp dụng trong dự án này.

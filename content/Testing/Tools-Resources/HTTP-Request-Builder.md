@@ -1,5 +1,6 @@
 ---
-description: Xây dựng và gửi HTTP requests trực tiếp từ trình duyệt. Hỗ trợ GET, POST, PUT, DELETE, headers, body. Xem response nhanh mà không cần Postman.
+title: "💪 HTTP Request"
+description: "Xây dựng và gửi HTTP requests trực tiếp từ trình duyệt. Hỗ trợ GET, POST, PUT, DELETE, headers, body. Xem response nhanh mà không cần Postman."
 ---
 
 # 📡 HTTP Request Builder

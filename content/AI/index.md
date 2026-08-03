@@ -1,3 +1,8 @@
+---
+title: "🏆 AI LLM"
+description: "Trí tuệ nhân tạo (AI) đang thay đổi cách chúng ta làm việc. Mục này hướng dẫn cách cài đặt, cấu hình và ứng dụng các ..."
+---
+
 # 🤖 AI & LLM for Testers Hub
 
 Trí tuệ nhân tạo (AI) đang thay đổi cách chúng ta làm việc. Mục này hướng dẫn cách cài đặt, cấu hình và ứng dụng các mô hình ngôn ngữ lớn (LLM) để tăng cường năng lực kiểm thử.

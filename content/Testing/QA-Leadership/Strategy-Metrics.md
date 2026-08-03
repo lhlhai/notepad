@@ -1,3 +1,8 @@
+---
+title: "🍀 QA Leadership"
+description: "Ở cấp độ cao nhất, vai trò của bạn là quản lý chất lượng tổng thể, đưa ra các quyết định chiến lược dựa trên dữ liệu ..."
+---
+
 # 👑 QA Leadership: Strategy, Risk & Metrics
 
 Ở cấp độ cao nhất, vai trò của bạn là quản lý chất lượng tổng thể, đưa ra các quyết định chiến lược dựa trên dữ liệu và dẫn dắt đội ngũ đi đến thành công.

@@ -1,3 +1,8 @@
+---
+title: "✨ AI for"
+description: "Sử dụng AI (ChatGPT, Claude, Manus) không chỉ để chat, mà để biến nó thành một \"Senior Tester\" trợ lý đắc lực cho côn..."
+---
+
 # 🤖 AI for Testing: The Ultimate Prompt Engineering Guide
 
 Sử dụng AI (ChatGPT, Claude, Manus) không chỉ để chat, mà để biến nó thành một "Senior Tester" trợ lý đắc lực cho công việc hàng ngày.

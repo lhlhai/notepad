@@ -1,3 +1,8 @@
+---
+title: "🌈 Performance Testing"
+description: "Không cần phải là chuyên gia Performance, bạn vẫn có thể thực hiện các bài kiểm tra nhanh để đảm bảo hệ thống không b..."
+---
+
 # ⚡ Performance Testing: Quick Checks for Daily Tasks
 
 Không cần phải là chuyên gia Performance, bạn vẫn có thể thực hiện các bài kiểm tra nhanh để đảm bảo hệ thống không bị "treo" khi có nhiều người dùng.

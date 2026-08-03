@@ -1,3 +1,8 @@
+---
+title: "🎯 Resources External"
+description: "Tổng hợp các nguồn tài nguyên, công cụ và liên kết hữu ích từ bên ngoài để hỗ trợ quá trình học tập và làm việc."
+---
+
 # 🔗 Resources & External Links Hub
 
 Tổng hợp các nguồn tài nguyên, công cụ và liên kết hữu ích từ bên ngoài để hỗ trợ quá trình học tập và làm việc.

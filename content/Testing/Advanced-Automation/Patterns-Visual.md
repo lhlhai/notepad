@@ -1,3 +1,8 @@
+---
+title: "🔥 Advanced Automation"
+description: "Khi dự án automation lớn dần, Page Object Model (POM) có thể trở nên cồng kềnh. Đây là lúc bạn cần áp dụng các kiến t..."
+---
+
 # 🏗️ Advanced Automation: Patterns & Visual Testing
 
 Khi dự án automation lớn dần, Page Object Model (POM) có thể trở nên cồng kềnh. Đây là lúc bạn cần áp dụng các kiến trúc nâng cao để giữ cho mã nguồn luôn sạch và dễ bảo trì.

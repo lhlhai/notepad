@@ -1,3 +1,8 @@
+---
+title: "⚡ Manual Testing"
+description: "Manual Testing là nền tảng của mọi hoạt động đảm bảo chất lượng. Mục này cung cấp các kiến thức về tư duy, kỹ thuật v..."
+---
+
 # 📋 Manual Testing Hub
 
 Manual Testing là nền tảng của mọi hoạt động đảm bảo chất lượng. Mục này cung cấp các kiến thức về tư duy, kỹ thuật và các biểu mẫu thực tế để bạn thực hiện kiểm thử thủ công một cách chuyên nghiệp.

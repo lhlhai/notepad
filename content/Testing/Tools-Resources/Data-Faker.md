@@ -1,5 +1,6 @@
 ---
-description: Tạo dữ liệu giả (fake data) nhanh chóng cho testing. Hỗ trợ tạo names, emails, addresses, phones, credit cards và nhiều loại data khác. Export CSV/JSON.
+title: "🍀 Data Faker"
+description: "Tạo dữ liệu giả (fake data) nhanh chóng cho testing. Hỗ trợ tạo names, emails, addresses, phones, credit cards và nhiều loại data khác. Export CSV/JSON."
 ---
 
 # 🎲 Data Faker

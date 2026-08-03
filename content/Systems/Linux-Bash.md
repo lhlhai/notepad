@@ -1,3 +1,8 @@
+---
+title: "🎈 Linux Bash"
+description: "sed -i 's/old-text/new-text/g' input.txt"
+---
+
 # 🐧 Linux, Bash & Networking
 
 ## 1. File & Text Manipulation

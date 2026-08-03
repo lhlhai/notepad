@@ -1,3 +1,8 @@
+---
+title: "🚀 Database SQL"
+description: "Dữ liệu là linh hồn của ứng dụng. Mục này giúp bạn làm chủ các kỹ năng truy vấn và quản lý cơ sở dữ liệu để phục vụ c..."
+---
+
 # 🗄️ Database & SQL Hub
 
 Dữ liệu là linh hồn của ứng dụng. Mục này giúp bạn làm chủ các kỹ năng truy vấn và quản lý cơ sở dữ liệu để phục vụ công việc kiểm thử.

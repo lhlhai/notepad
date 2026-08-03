@@ -1,3 +1,8 @@
+---
+title: "🎯 Elite Security"
+description: "Một \"Super Tester\" không chỉ tìm lỗi logic mà còn phải là một \"Ethical Hacker\" biết cách bảo vệ hệ thống khỏi các cuộ..."
+---
+
 # 🛡️ Elite Security: Penetration Testing for QA
 
 Một "Super Tester" không chỉ tìm lỗi logic mà còn phải là một "Ethical Hacker" biết cách bảo vệ hệ thống khỏi các cuộc tấn công từ bên ngoài.

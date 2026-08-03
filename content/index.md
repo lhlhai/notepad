@@ -1,3 +1,8 @@
+---
+title: "💎 Chào mừng"
+description: "Đây là nơi lưu trữ các ghi chú kỹ thuật, kiến thức và kinh nghiệm trong quá trình làm việc của tôi. Hệ thống được tổ ..."
+---
+
 # 📚 Chào mừng đến với Notepad cá nhân
 
 Đây là nơi lưu trữ các ghi chú kỹ thuật, kiến thức và kinh nghiệm trong quá trình làm việc của tôi. Hệ thống được tổ chức lại theo các danh mục chuyên nghiệp để bạn dễ dàng tra cứu.

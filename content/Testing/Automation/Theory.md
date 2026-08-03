@@ -1,3 +1,8 @@
+---
+title: "🍀 Automation Testing"
+description: "Kiến thức chiến lược để xây dựng hệ thống tự động hóa hiệu quả."
+---
+
 # 📖 Automation Testing: Strategic Theory
 
 Kiến thức chiến lược để xây dựng hệ thống tự động hóa hiệu quả.

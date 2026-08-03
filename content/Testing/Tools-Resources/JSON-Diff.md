@@ -1,5 +1,6 @@
 ---
-description: So sánh hai JSON object, highlight sự khác biệt về cấu trúc và giá trị. Hữu ích khi kiểm tra API response trước/sau khi deploy.
+title: "🎨 JSON Diff"
+description: "So sánh hai JSON object, highlight sự khác biệt về cấu trúc và giá trị. Hữu ích khi kiểm tra API response trước/sau khi deploy."
 ---
 
 # 🔀 JSON Diff

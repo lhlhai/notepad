@@ -1,3 +1,8 @@
+---
+title: "🌈 Kiến trúc"
+description: "Ứng dụng được thiết kế theo mô hình Client-side Rendering đơn giản."
+---
+
 # 🏗️ Kiến trúc Hệ thống
 
 Ứng dụng được thiết kế theo mô hình Client-side Rendering đơn giản.

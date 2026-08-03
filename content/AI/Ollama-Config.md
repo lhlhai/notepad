@@ -1,3 +1,8 @@
+---
+title: "🌟 Install GGUF"
+description: "Hướng dẫn cài đặt và cấu hình model GGUF cho Ollama."
+---
+
 # Install GGUF Model vào Ollama
 
 ## Bước 1: Chuẩn bị file GGUF

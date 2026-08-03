@@ -1,3 +1,8 @@
+---
+title: "💡 Daily Tasks"
+description: "Trang này tổng hợp các quy trình và công việc quan trọng nhất mà một Tester/QA cần thực hiện hàng ngày để đảm bảo chấ..."
+---
+
 # 📅 Daily Tasks: Lộ trình làm việc hiệu quả cho Tester
 
 Trang này tổng hợp các quy trình và công việc quan trọng nhất mà một Tester/QA cần thực hiện hàng ngày để đảm bảo chất lượng dự án và tối ưu hóa năng suất.

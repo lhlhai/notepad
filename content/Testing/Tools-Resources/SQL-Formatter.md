@@ -1,5 +1,6 @@
 ---
-description: Format và beautify các câu lệnh SQL rối thành code sạch, dễ đọc. Hữu ích khi debug queries, review SQL từ logs, hoặc chuẩn bị test data.
+title: "🌟 SQL Formatter"
+description: "Format và beautify các câu lệnh SQL rối thành code sạch, dễ đọc. Hữu ích khi debug queries, review SQL từ logs, hoặc chuẩn bị test data."
 ---
 
 # 💾 SQL Formatter & Beautifier
