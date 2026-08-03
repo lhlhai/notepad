@@ -18,6 +18,7 @@ Những trợ thủ đắc lực nằm ngay trên thanh công cụ của bạn.
 ## 2. Công cụ Web hữu ích (Online Tools)
 Không cần cài đặt, truy cập và sử dụng ngay lập tức.
 
+- **[✨ Interactive Toolbox](./Interactive-Toolbox.md):** **Chạy trực tiếp** UUID, Password, JSON, JWT, Base64... ngay trên trang này mà không cần rời khỏi Notepad.
 - **[Regex101](https://regex101.com/):** Kiểm tra và giải thích các biểu thức chính quy (Regex). Cực kỳ hữu ích khi test validation field.
 - **[JWT.io](https://jwt.io/):** Giải mã các token xác thực để kiểm tra thông tin bên trong (Role, Expire time).
 - **[Postman/Insomnia](https://www.postman.com/):** "Ông vua" trong làng kiểm thử API.
