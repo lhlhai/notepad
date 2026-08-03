@@ -1,5 +1,5 @@
 ---
-title: "🚀 Manual Testing"
+title: "🚀 Manual Cheatsheet"
 description: "Bộ quy tắc nhanh để áp dụng khi brainstorm test case."
 ---
 
