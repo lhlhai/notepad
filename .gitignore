@@ -1,1 +1,26 @@
-(content/Testing/API/Cheatsheet.md', 'content/Testing/API/Security.md', 'content/Testing/API/Theory.md', 'content/Testing/Automation/Cheatsheet.md', 'content/Testing/Automation/Frameworks.md', 'content/Testing/Automation/Theory.md', 'content/Testing/Manual/Cheatsheet.md', 'content/Testing/Manual/Templates.md', 'content/Testing/Manual/Theory.md')
+# Examples 1:
+# (empty — output nothing)
+
+# Example 2 (Project with artifacts):
+#Compiled and build artifacts
+*.pyc
+__pycache__/
+*.o
+*.obj
+dist/
+build/
+#Dependencies
+.venv/
+venv/
+node_modules/
+#Logs and temp files
+*.log
+*.tmp
+*.swp
+#Environment
+.env
+.env.local
+.env.*
+#Editors
+.vscode/
+.idea/
