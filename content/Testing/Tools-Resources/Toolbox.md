@@ -1,3 +1,7 @@
+---
+description: Danh sách các công cụ, tiện ích và tài nguyên chọn lọc giúp tối ưu hóa hiệu suất kiểm thử, từ trình duyệt extensions đến các ứng dụng chuyên dụng.
+---
+
 # 🛠️ The Ultimate Tester's Toolbox: Work 3x Faster
 
 Danh sách các công cụ và tài nguyên "tinh túy" giúp bạn tối ưu hóa quy trình làm việc và xử lý các tác vụ khó một cách dễ dàng.
