@@ -22,6 +22,12 @@ Danh sách chọn lọc các công cụ "phải có" trong túi đồ của mộ
 *   **Desktop Apps**: Charles Proxy, DBeaver, Postman...
 *   **Online Resources**: Các trang web học tập và cộng đồng QA lớn trên thế giới.
 
+### 3. Công cụ tương tác nâng cao
+Các công cụ mạnh mẽ hơn, giúp xử lý dữ liệu và log phức tạp trực tiếp trên trình duyệt.
+*   **[📊 CSV Viewer & Editor](./CSV-Viewer.md)**: Xem, phân tích và chỉnh sửa dữ liệu CSV một cách trực quan.
+*   **[↔️ CSV Compare](./CSV-Compare.md)**: So sánh hai bộ dữ liệu CSV để tìm ra sự khác biệt.
+*   **[📜 Log Tracer](./Log-Tracer.md)**: Phân tích log, highlight lỗi và lọc theo từ khóa để debug hiệu quả.
+
 ---
 
 > 💡 **Mẹo:** Bạn có thể sử dụng thanh tìm kiếm (Ctrl+K) để truy cập nhanh vào bất kỳ công cụ nào trong danh sách này.
