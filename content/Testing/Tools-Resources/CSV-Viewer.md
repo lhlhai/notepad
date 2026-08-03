@@ -31,6 +31,7 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
   display: flex;
   gap: 0.5rem;
   margin-bottom: 1rem;
+  flex-wrap: wrap;
 }
 .csv-controls button {
   padding: 0.5rem 1rem;
@@ -66,90 +67,131 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
   position: sticky;
   top: 0;
 }
+.csv-stats {
+  background: rgba(0,0,0,0.05);
+  padding: 0.5rem 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-size: 0.85rem;
+}
 </style>
 
 <div class="csv-viewer-container">
   <div class="csv-input-group">
-    <label for="csv-data">Dán dữ liệu CSV vào đây:</label>
-    <textarea id="csv-data" placeholder="header1,header2\nvalue1,value2"></textarea>
+    <label for="csv-data"><strong>Dán dữ liệu CSV vào đây:</strong></label>
+    <textarea id="csv-data" placeholder="header1,header2,header3&#10;value1,value2,value3&#10;value4,value5,value6"></textarea>
   </div>
   <div class="csv-controls">
     <button onclick="parseCSV()">Xem CSV</button>
     <button onclick="clearCSV()">Xóa</button>
   </div>
-  <div class="csv-table-container" id="csv-output"></div>
+  <div id="csv-stats" class="csv-stats" style="display:none;"></div>
+  <div class="csv-table-container" id="csv-output">Kết quả sẽ hiển thị ở đây...</div>
 </div>
 
 <script>
 function parseCSV() {
   const csvData = document.getElementById("csv-data").value;
-  // Robust CSV parsing to handle commas and newlines within quoted fields
-  const lines = csvData.split(/\r\n|\n/).filter(line => line.trim() !== "");
+  const output = document.getElementById("csv-output");
+  const statsEl = document.getElementById("csv-stats");
 
-  if (lines.length === 0) {
-    document.getElementById("csv-output").innerHTML = "<p>Không có dữ liệu CSV để hiển thị.</p>";
+  if (!csvData.trim()) {
+    output.innerHTML = "<p style='color:#999;padding:1rem;'>Không có dữ liệu CSV để hiển thị.</p>";
+    statsEl.style.display = "none";
     return;
   }
 
-  // Simple CSV parser that handles quoted fields (but not escaped quotes within quotes)
-  const parseLine = (line) => {
+  // Parse CSV lines
+  const lines = csvData.split(/\r\n|\r|\n/);
+  const validLines = lines.filter(line => line.trim() !== "");
+
+  if (validLines.length === 0) {
+    output.innerHTML = "<p style='color:#999;padding:1rem;'>Không có dữ liệu CSV để hiển thị.</p>";
+    statsEl.style.display = "none";
+    return;
+  }
+
+  // Robust CSV parser
+  function parseLine(line) {
     const result = [];
-    let inQuote = false;
     let currentField = "";
+    let inQuotes = false;
+
     for (let i = 0; i < line.length; i++) {
       const char = line[i];
-      if (char === "," && !inQuote) {
-        result.push(currentField.trim());
-        currentField = "";
-      } else if (char === "," && inQuote) {
-        currentField += char;
-      } else if (char === "\"" && (i === 0 || line[i-1] === "," || line[i-1] === " ")) {
-        inQuote = !inQuote;
+      const nextChar = line[i + 1];
+
+      if (inQuotes) {
+        if (char === '"' && nextChar === '"') {
+          // Escaped quote
+          currentField += '"';
+          i++; // skip next quote
+        } else if (char === '"') {
+          inQuotes = false;
+        } else {
+          currentField += char;
+        }
       } else {
-        currentField += char;
+        if (char === '"') {
+          inQuotes = true;
+        } else if (char === ',') {
+          result.push(currentField);
+          currentField = "";
+        } else {
+          currentField += char;
+        }
       }
     }
-    result.push(currentField.trim());
+    result.push(currentField);
     return result;
-  };
-
-  const table = document.createElement("table");
-  table.className = "csv-table";
-
-  // Header
-  const thead = document.createElement("thead");
-  const headerRow = document.createElement("tr");
-  const headers = parseLine(lines[0]);
-  headers.forEach(header => {
-    const th = document.createElement("th");
-    th.textContent = header;
-    headerRow.appendChild(th);
-  });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
-
-  // Body
-  const tbody = document.createElement("tbody");
-  for (let i = 1; i < lines.length; i++) {
-    const line = lines[i];
-    if (line.trim() === "") continue;
-    const dataRow = document.createElement("tr");
-    parseLine(line).forEach(cell => {
-      const td = document.createElement("td");
-      td.textContent = cell;
-      dataRow.appendChild(td);
-    });
-    tbody.appendChild(dataRow);
   }
-  table.appendChild(tbody);
 
-  document.getElementById("csv-output").innerHTML = "";
-  document.getElementById("csv-output").appendChild(table);
+  // Parse header
+  const headers = parseLine(validLines[0]);
+
+  // Build table
+  let html = '<table class="csv-table"><thead><tr>';
+  for (let h = 0; h < headers.length; h++) {
+    html += '<th>' + escapeHtml(headers[h]) + '</th>';
+  }
+  html += '</tr></thead><tbody>';
+
+  let rowCount = 0;
+  for (let i = 1; i < validLines.length; i++) {
+    const cells = parseLine(validLines[i]);
+    html += '<tr>';
+    for (let j = 0; j < headers.length; j++) {
+      html += '<td>' + escapeHtml(cells[j] || '') + '</td>';
+    }
+    // Handle extra cells beyond headers
+    for (let j = headers.length; j < cells.length; j++) {
+      html += '<td>' + escapeHtml(cells[j] || '') + '</td>';
+    }
+    html += '</tr>';
+    rowCount++;
+  }
+
+  html += '</tbody></table>';
+  output.innerHTML = html;
+
+  // Show stats
+  statsEl.style.display = "block";
+  statsEl.innerHTML = '📊 <strong>' + headers.length + '</strong> columns | <strong>' + rowCount + '</strong> rows | ' + (validLines.length - 1) + ' data lines parsed';
 }
 
 function clearCSV() {
   document.getElementById("csv-data").value = "";
-  document.getElementById("csv-output").innerHTML = "";
+  document.getElementById("csv-output").innerHTML = "Kết quả sẽ hiển thị ở đây...";
+  document.getElementById("csv-stats").style.display = "none";
+}
+
+function escapeHtml(text) {
+  if (!text) return "";
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 </script>
 </div>

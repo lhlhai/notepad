@@ -31,9 +31,14 @@ Công cụ này giúp bạn so sánh hai bộ dữ liệu CSV và làm nổi b�
   background: var(--light);
   color: var(--dark);
   font-family: monospace;
+  font-size: 0.85rem;
 }
 .csv-compare-controls {
   margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
 }
 .csv-compare-controls button {
   padding: 0.5rem 1rem;
@@ -48,6 +53,13 @@ Công cụ này giúp bạn so sánh hai bộ dữ liệu CSV và làm nổi b�
 .csv-compare-controls button:hover {
   opacity: 0.9;
 }
+.csv-compare-controls select {
+  padding: 0.5rem;
+  border: 1px solid var(--gray);
+  border-radius: 4px;
+  background: var(--light);
+  color: var(--dark);
+}
 .csv-compare-results {
   border: 1px solid var(--gray);
   border-radius: 4px;
@@ -56,15 +68,9 @@ Công cụ này giúp bạn so sánh hai bộ dữ liệu CSV và làm nổi b�
   min-height: 100px;
   overflow-x: auto;
 }
-.diff-added {
-  background-color: #d4edda; /* Greenish for added */
-}
-.diff-removed {
-  background-color: #f8d7da; /* Reddish for removed */
-}
-.diff-changed {
-  background-color: #fff3cd; /* Yellowish for changed */
-}
+.diff-added { background-color: #d4edda; }
+.diff-removed { background-color: #f8d7da; }
+.diff-changed { background-color: #fff3cd; }
 .csv-compare-table {
   width: 100%;
   border-collapse: collapse;
@@ -80,161 +86,249 @@ Công cụ này giúp bạn so sánh hai bộ dữ liệu CSV và làm nổi b�
   position: sticky;
   top: 0;
 }
+.csv-compare-summary {
+  background: rgba(0,0,0,0.05);
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
 </style>
 
 <div class="csv-compare-container">
   <div class="csv-compare-inputs">
     <div>
-      <label for="csv1">CSV gốc (trái):</label>
-      <textarea id="csv1" placeholder="header1,header2\nvalue1,value2"></textarea>
+      <label for="csv1"><strong>CSV gốc (Expected):</strong></label>
+      <textarea id="csv1" placeholder="id,name,status&#10;1,John,active&#10;2,Jane,inactive"></textarea>
     </div>
     <div>
-      <label for="csv2">CSV mới (phải):</label>
-      <textarea id="csv2" placeholder="header1,header2\nvalue1_new,value2"></textarea>
+      <label for="csv2"><strong>CSV mới (Actual):</strong></label>
+      <textarea id="csv2" placeholder="id,name,status&#10;1,John,active&#10;2,Jane,active&#10;3,Bob,active"></textarea>
     </div>
   </div>
   <div class="csv-compare-controls">
-    <button onclick="compareCSV()">So sánh CSV</button>
+    <button onclick="compareCSV()">↔️ So sánh CSV</button>
+    <button onclick="swapCSV()">🔄 Hoán đổi</button>
     <button onclick="clearCompare()">Xóa</button>
+    <label style="margin-left:0.5rem;"><strong>Key Column:</strong></label>
+    <select id="compare-key-col" style="margin-left:0.25rem;">
+      <option value="0">Column 1 (auto)</option>
+      <option value="-1">So sánh toàn bộ row</option>
+    </select>
   </div>
   <div class="csv-compare-results" id="compare-output">Kết quả so sánh sẽ hiển thị ở đây...</div>
 </div>
 
 <script>
-function parseCsvToObjects(csv) {
-  const lines = csv.split(/\r\n|\n/).filter(line => line.trim() !== "");
-  if (lines.length === 0) return [];
+// Robust CSV parser
+function parseCSVLines(csv) {
+  const lines = csv.split(/\r\n|\r|\n/);
+  const validLines = lines.filter(line => line.trim() !== "");
+  if (validLines.length === 0) return { headers: [], rows: [] };
 
-  const parseLine = (line) => {
+  function parseLine(line) {
     const result = [];
-    let inQuote = false;
     let currentField = "";
+    let inQuotes = false;
+
     for (let i = 0; i < line.length; i++) {
       const char = line[i];
-      if (char === "," && !inQuote) {
-        result.push(currentField.trim());
-        currentField = "";
-      } else if (char === "," && inQuote) {
-        currentField += char;
-      } else if (char === "\"" && (i === 0 || line[i-1] === "," || line[i-1] === " ")) {
-        inQuote = !inQuote;
+      const nextChar = line[i + 1];
+
+      if (inQuotes) {
+        if (char === '"' && nextChar === '"') {
+          currentField += '"';
+          i++;
+        } else if (char === '"') {
+          inQuotes = false;
+        } else {
+          currentField += char;
+        }
       } else {
-        currentField += char;
+        if (char === '"') {
+          inQuotes = true;
+        } else if (char === ',') {
+          result.push(currentField);
+          currentField = "";
+        } else {
+          currentField += char;
+        }
       }
     }
-    result.push(currentField.trim());
+    result.push(currentField);
     return result;
-  };
-
-  const headers = parseLine(lines[0]);
-  const data = [];
-  for (let i = 1; i < lines.length; i++) {
-    const values = parseLine(lines[i]);
-    const obj = {};
-    headers.forEach((header, index) => {
-      obj[header] = values[index];
-    });
-    data.push(obj);
   }
-  return data;
+
+  const headers = parseLine(validLines[0]);
+  const rows = [];
+  for (let i = 1; i < validLines.length; i++) {
+    rows.push(parseLine(validLines[i]));
+  }
+  return { headers, rows };
+}
+
+function rowToObject(headers, row) {
+  const obj = {};
+  headers.forEach((h, i) => {
+    obj[h] = row[i] !== undefined ? row[i] : "";
+  });
+  return obj;
 }
 
 function compareCSV() {
-  const csv1 = document.getElementById("csv1").value;
-  const csv2 = document.getElementById("csv2").value;
+  const csv1Text = document.getElementById("csv1").value;
+  const csv2Text = document.getElementById("csv2").value;
+  const outputDiv = document.getElementById("compare-output");
+  const keyColSelect = document.getElementById("compare-key-col");
 
-  const data1 = parseCsvToObjects(csv1);
-  const data2 = parseCsvToObjects(csv2);
-
-  if (data1.length === 0 && data2.length === 0) {
-    document.getElementById("compare-output").innerHTML = "<p>Không có dữ liệu để so sánh.</p>";
+  if (!csv1Text.trim() && !csv2Text.trim()) {
+    outputDiv.innerHTML = "<p style='color:#999;padding:1rem;'>Vui lòng dán dữ liệu CSV vào cả hai ô.</p>";
     return;
   }
 
-  const outputDiv = document.getElementById("compare-output");
-  outputDiv.innerHTML = "";
+  const data1 = parseCSVLines(csv1Text);
+  const data2 = parseCSVLines(csv2Text);
 
-  const allHeaders = Array.from(new Set([...(data1[0] ? Object.keys(data1[0]) : []), ...(data2[0] ? Object.keys(data2[0]) : [])]));
+  if (data1.rows.length === 0 && data2.rows.length === 0) {
+    outputDiv.innerHTML = "<p style='color:#999;padding:1rem;'>Không có dữ liệu để so sánh.</p>";
+    return;
+  }
 
-  const table = document.createElement("table");
-  table.className = "csv-compare-table";
-  const thead = document.createElement("thead");
-  const headerRow = document.createElement("tr");
-  allHeaders.forEach(h => {
-    const th = document.createElement("th");
-    th.textContent = h;
-    headerRow.appendChild(th);
+  // Determine headers
+  const allHeaders = [...data1.headers];
+  data2.headers.forEach(h => {
+    if (!allHeaders.includes(h)) allHeaders.push(h);
   });
-  thead.appendChild(headerRow);
-  table.appendChild(thead);
 
-  const tbody = document.createElement("tbody");
+  // Determine key column index
+  const keyColIndex = parseInt(keyColSelect.value);
+  const useKeyCol = keyColIndex >= 0 && keyColIndex < Math.max(data1.headers.length, data2.headers.length);
 
-  const data1Map = new Map(data1.map(row => [JSON.stringify(row), row]));
-  const data2Map = new Map(data2.map(row => [JSON.stringify(row), row]));
-
-  // Check for removed rows (in data1 but not in data2)
-  data1.forEach(row1 => {
-    if (!data2Map.has(JSON.stringify(row1))) {
-      const tr = document.createElement("tr");
-      tr.classList.add("diff-removed");
-      allHeaders.forEach(header => {
-        const td = document.createElement("td");
-        td.textContent = row1[header] || "";
-        tr.appendChild(td);
-      });
-      tbody.appendChild(tr);
+  // Build maps by key
+  const map1 = new Map();
+  data1.rows.forEach(row => {
+    if (useKeyCol) {
+      const key = (row[keyColIndex] || "").trim();
+      map1.set(key, rowToObject(data1.headers, row));
+    } else {
+      const key = JSON.stringify(rowToObject(data1.headers, row));
+      map1.set(key, rowToObject(data1.headers, row));
     }
   });
 
-  // Check for added rows (in data2 but not in data1) and changed rows
-  data2.forEach(row2 => {
-    const row2String = JSON.stringify(row2);
-    if (!data1Map.has(row2String)) {
-      const tr = document.createElement("tr");
-      tr.classList.add("diff-added");
-      allHeaders.forEach(header => {
-        const td = document.createElement("td");
-        td.textContent = row2[header] || "";
-        tr.appendChild(td);
-      });
-      tbody.appendChild(tr);
+  const map2 = new Map();
+  data2.rows.forEach(row => {
+    if (useKeyCol) {
+      const key = (row[keyColIndex] || "").trim();
+      map2.set(key, rowToObject(data2.headers, row));
     } else {
-      // Check for changed rows (same row, but some values changed)
-      const row1 = data1.find(r => JSON.stringify(r) === row2String);
-      if (row1) {
-        let changed = false;
-        const tr = document.createElement("tr");
-        allHeaders.forEach(header => {
-          const td = document.createElement("td");
-          if (row1[header] !== row2[header]) {
-            td.classList.add("diff-changed");
-            td.innerHTML = `<span style="text-decoration: line-through; color: #dc3545;">${row1[header] || ""}</span> <span style="color: #28a745;">${row2[header] || ""}</span>`;
-            changed = true;
+      const key = JSON.stringify(rowToObject(data2.headers, row));
+      map2.set(key, rowToObject(data2.headers, row));
+    }
+  });
+
+  // Stats
+  let addedCount = 0, removedCount = 0, changedCount = 0, sameCount = 0;
+
+  // Build table HTML
+  let html = "";
+
+  // Removed rows (in data1 but not in data2)
+  const removedKeys = new Set();
+  map1.forEach((obj1, key) => {
+    const matchKey = useKeyCol ? key : JSON.stringify(obj1);
+    const foundIn2 = useKeyCol ? map2.has(key) : map2.has(JSON.stringify(obj1));
+    if (!foundIn2) {
+      removedCount++;
+      let rowHtml = '<tr class="diff-removed">';
+      allHeaders.forEach(h => {
+        rowHtml += '<td>' + escapeHtml(obj1[h] || "") + '</td>';
+      });
+      rowHtml += '</tr>';
+      html += rowHtml;
+    }
+  });
+
+  // Added and Changed rows (in data2)
+  map2.forEach((obj2, key) => {
+    const matchKey = useKeyCol ? key : JSON.stringify(obj2);
+    const foundIn1 = useKeyCol ? map1.has(key) : map1.has(JSON.stringify(obj2));
+    if (!foundIn1) {
+      addedCount++;
+      let rowHtml = '<tr class="diff-added">';
+      allHeaders.forEach(h => {
+        rowHtml += '<td>' + escapeHtml(obj2[h] || "") + '</td>';
+      });
+      rowHtml += '</tr>';
+      html += rowHtml;
+    } else {
+      // Check for changed values
+      const obj1 = useKeyCol ? map1.get(key) : null;
+      if (obj1) {
+        let rowHtml = '<tr>';
+        let hasChange = false;
+        allHeaders.forEach(h => {
+          const v1 = obj1[h] || "";
+          const v2 = obj2[h] || "";
+          if (v1 !== v2) {
+            hasChange = true;
+            rowHtml += '<td class="diff-changed"><span style="text-decoration:line-through;color:#dc3545;">' + escapeHtml(v1) + '</span> → <span style="color:#28a745;font-weight:bold;">' + escapeHtml(v2) + '</span></td>';
           } else {
-            td.textContent = row2[header] || "";
+            rowHtml += '<td>' + escapeHtml(v2) + '</td>';
           }
-          tr.appendChild(td);
         });
-        if (changed) {
-          tbody.appendChild(tr);
+        rowHtml += '</tr>';
+        if (hasChange) {
+          changedCount++;
+          html += rowHtml;
+        } else {
+          sameCount++;
         }
       }
     }
   });
 
-  table.appendChild(tbody);
-  outputDiv.appendChild(table);
+  // Render
+  let summaryHtml = '<div class="csv-compare-summary">📊 Tổng kết: ';
+  summaryHtml += '<span style="color:#28a745;">+' + addedCount + ' thêm</span> | ';
+  summaryHtml += '<span style="color:#dc3545;">-' + removedCount + ' xóa</span> | ';
+  summaryHtml += '<span style="color:#d39e00;">~' + changedCount + ' thay đổi</span> | ';
+  summaryHtml += '<span>✅ ' + sameCount + ' giống nhau</span></div>';
 
-  if (tbody.children.length === 0) {
-    outputDiv.innerHTML = "<p>Không tìm thấy sự khác biệt nào.</p>";
+  let tableHtml = "";
+  if (html) {
+    tableHtml = '<table class="csv-compare-table"><thead><tr>';
+    allHeaders.forEach(h => {
+      tableHtml += '<th>' + escapeHtml(h) + '</th>';
+    });
+    tableHtml += '</tr></thead><tbody>' + html + '</tbody></table>';
   }
+
+  outputDiv.innerHTML = summaryHtml + (html ? tableHtml : '<p>Không tìm thấy sự khác biệt nào. Hai bộ dữ liệu giống nhau!</p>');
+}
+
+function swapCSV() {
+  const el1 = document.getElementById("csv1");
+  const el2 = document.getElementById("csv2");
+  const temp = el1.value;
+  el1.value = el2.value;
+  el2.value = temp;
 }
 
 function clearCompare() {
   document.getElementById("csv1").value = "";
   document.getElementById("csv2").value = "";
   document.getElementById("compare-output").innerHTML = "Kết quả so sánh sẽ hiển thị ở đây...";
+}
+
+function escapeHtml(text) {
+  if (!text) return "";
+  return String(text)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 </script>
 </div>
