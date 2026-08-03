@@ -38,6 +38,17 @@ const getOpts = ({ target }: Event): { url: URL; scroll?: boolean } | undefined 
 function notifyNav(url: FullSlug) {
   const event: CustomEventMap["nav"] = new CustomEvent("nav", { detail: { url } })
   document.dispatchEvent(event)
+
+  // Re-execute <script> tags inside <article> after SPA navigation
+  // Scripts injected via innerHTML/DOM API don't auto-execute in browsers
+  document.querySelectorAll("article script").forEach((oldScript) => {
+    const newScript = document.createElement("script")
+    for (const attr of oldScript.attributes) {
+      newScript.setAttribute(attr.name, attr.value)
+    }
+    newScript.textContent = oldScript.textContent
+    oldScript.replaceWith(newScript)
+  })
 }
 
 const cleanupFns: Set<(...args: any[]) => void> = new Set()
