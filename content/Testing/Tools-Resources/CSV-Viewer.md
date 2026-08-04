@@ -14,9 +14,7 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
   color: var(--dark);
   margin-top: 2rem;
 }
-.csv-input-group {
-  margin-bottom: 1rem;
-}
+.csv-input-group { margin-bottom: 1rem; }
 .csv-input-group textarea {
   width: 100%;
   height: 150px;
@@ -27,12 +25,7 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
   color: var(--dark);
   font-family: monospace;
 }
-.csv-controls {
-  display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
-  flex-wrap: wrap;
-}
+.csv-controls { display: flex; gap: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap; }
 .csv-controls button {
   padding: 0.5rem 1rem;
   background: var(--secondary);
@@ -43,19 +36,14 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
   font-weight: 600;
   transition: opacity 0.2s;
 }
-.csv-controls button:hover {
-  opacity: 0.9;
-}
+.csv-controls button:hover { opacity: 0.9; }
 .csv-table-container {
   max-height: 500px;
   overflow: auto;
   border: 1px solid var(--gray);
   border-radius: 4px;
 }
-.csv-table {
-  width: 100%;
-  border-collapse: collapse;
-}
+.csv-table { width: 100%; border-collapse: collapse; }
 .csv-table th, .csv-table td {
   border: 1px solid var(--lightgray);
   padding: 8px;
@@ -95,33 +83,29 @@ function parseCSV() {
   const output = document.getElementById("csv-output");
   const statsEl = document.getElementById("csv-stats");
 
-  if (!csvData.trim()) {
+  function showEmptyMessage(text) {
+    output.innerHTML = "";
     const msg = document.createElement("p");
     msg.style.color = "#999";
     msg.style.padding = "1rem";
-    msg.textContent = "Không có dữ liệu CSV để hiển thị.";
-    output.innerHTML = "";
+    msg.textContent = text;
     output.appendChild(msg);
     statsEl.style.display = "none";
+  }
+
+  if (!csvData.trim()) {
+    showEmptyMessage("Không có dữ liệu CSV để hiển thị.");
     return;
   }
 
-  // Parse CSV lines
   const lines = csvData.split(/\r\n|\r|\n/);
   const validLines = lines.filter(line => line.trim() !== "");
 
   if (validLines.length === 0) {
-    const msg = document.createElement("p");
-    msg.style.color = "#999";
-    msg.style.padding = "1rem";
-    msg.textContent = "Không có dữ liệu CSV để hiển thị.";
-    output.innerHTML = "";
-    output.appendChild(msg);
-    statsEl.style.display = "none";
+    showEmptyMessage("Không có dữ liệu CSV để hiển thị.");
     return;
   }
 
-  // Robust CSV parser
   function parseLine(line) {
     const result = [];
     let currentField = "";
@@ -157,7 +141,6 @@ function parseCSV() {
 
   const headers = parseLine(validLines[0]);
 
-  // Build table via DOM API (no HTML string concatenation)
   const table = document.createElement("table");
   table.className = "csv-table";
 
@@ -196,7 +179,6 @@ function parseCSV() {
   output.innerHTML = "";
   output.appendChild(table);
 
-  // Show stats
   statsEl.style.display = "block";
   statsEl.innerHTML = "";
   const strongCols = document.createElement("strong");
@@ -217,20 +199,6 @@ function clearCSV() {
   document.getElementById("csv-data").value = "";
   document.getElementById("csv-output").textContent = "Kết quả sẽ hiển thị ở đây...";
   document.getElementById("csv-stats").style.display = "none";
-}
-function clearCSV() {
-  document.getElementById("csv-data").value = "";
-  document.getElementById("csv-output").innerHTML = "Kết quả sẽ hiển thị ở đây...";
-  document.getElementById("csv-stats").style.display = "none";
-}
-
-function escapeHtml(text) {
-  if (!text) return "";
-  return String(text)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
 }
 </script>
 </div>
