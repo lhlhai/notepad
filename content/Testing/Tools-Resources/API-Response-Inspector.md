@@ -266,13 +266,8 @@ function apiBuildTree(o, depth) {
       itemDiv.style.marginLeft = "1rem";
 
       const keySpan = document.createElement("span");
-      if (value === null || (typeof value === 'object' && value !== null)) {
-        keySpan.className = "tree-key";
-        keySpan.textContent = key;
-      } else {
-        keySpan.className = "tree-key";
-        keySpan.textContent = key;
-      }
+      keySpan.className = "tree-key";
+      keySpan.textContent = key;
       itemDiv.appendChild(keySpan);
       itemDiv.appendChild(document.createTextNode(": "));
       itemDiv.appendChild(apiBuildTree(value, depth + 1));

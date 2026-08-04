@@ -78,8 +78,7 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
 </div>
 
 <script>
-// CSV Viewer functions - attached to window for global access
-window.parseCSV = function() {
+function parseCSV() {
   const csvData = document.getElementById("csv-data").value;
   const output = document.getElementById("csv-output");
   const statsEl = document.getElementById("csv-stats");
@@ -194,12 +193,23 @@ window.parseCSV = function() {
     strongRows,
     " rows | " + (validLines.length - 1) + " data lines parsed"
   );
-};
+}
 
-window.clearCSV = function() {
+function clearCSV() {
   document.getElementById("csv-data").value = "";
   document.getElementById("csv-output").textContent = "Kết quả sẽ hiển thị ở đây...";
   document.getElementById("csv-stats").style.display = "none";
-};
+}
 </script>
 </div>
+
+---
+
+## 🚀 Hướng dẫn sử dụng
+1. **Dán dữ liệu CSV** vào ô input (có thể copy từ Excel, Google Sheets, hoặc file .csv).
+2. Nhấn **Xem CSV** để hiển thị dữ liệu dưới dạng bảng.
+3. Xem thống kê: số columns, số rows, số dòng đã parse.
+4. Scroll ngang/dọc để xem toàn bộ dữ liệu nếu bảng lớn.
+5. Nhấn **Xóa** để clear và nhập dữ liệu mới.
+
+> 💡 **Mẹo:** Dùng công cụ này để nhanh chóng kiểm tra cấu trúc CSV, verify data format, hoặc xem trước dữ liệu trước khi import vào hệ thống.

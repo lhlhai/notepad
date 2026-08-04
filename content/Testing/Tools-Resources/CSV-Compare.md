@@ -353,3 +353,18 @@ function clearCompare() {
 }
 </script>
 </div>
+
+---
+
+## 🚀 Hướng dẫn sử dụng
+1. **Dán dữ liệu CSV** vào hai ô: CSV gốc (Expected) và CSV mới (Actual).
+2. Nhấn **↔️ So sánh CSV** để xem sự khác biệt.
+3. Chọn **Key Column** để so sánh theo cột khóa (hoặc chọn "So sánh toàn bộ row").
+4. Kết quả hiển thị:
+   - 🟢 **Dòng màu xanh**: Dòng được thêm mới (Added)
+   - 🔴 **Dòng màu đỏ**: Dòng bị xóa (Removed)
+   - 🟡 **Dòng màu vàng**: Dòng có giá trị thay đổi (Changed)
+5. Nhấn **🔄 Hoán đổi** để swap nội dung hai ô CSV.
+6. Nhấn **Xóa** để clear toàn bộ.
+
+> 💡 **Mẹo:** Dùng công cụ này để so sánh dữ liệu trước/sau khi deploy, verify data migration, hoặc check sự khác biệt giữa các môi trường (dev/staging/production).
