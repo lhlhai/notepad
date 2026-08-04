@@ -141,7 +141,14 @@ function compareJSON() {
       if (hasIn1 && hasIn2) {
         const v1 = o1[key];
         const v2 = o2[key];
-        if (typeof v1 === 'object' && v1 !== null && typeof v2 === 'object' && v2 !== null && !Array.isArray(v1) && !Array.isArray(v2)) {
+        if (
+            Object.is(typeof v1, 'object') &&
+            !Object.is(v1, null) &&
+            Object.is(typeof v2, 'object') &&
+            !Object.is(v2, null) &&
+            !Array.isArray(v1) &&
+            !Array.isArray(v2)
+          ) {
           lines.push(`${prefix}  ${k}: `);
           const subDiff = diffObjects(v1, v2, indent + 2);
           lines.push(subDiff.lines.join('\n'));
