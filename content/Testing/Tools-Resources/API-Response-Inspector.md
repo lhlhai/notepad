@@ -138,7 +138,7 @@ function apiAnalyzeJSON(obj) {
     if (Array.isArray(o)) {
       stats.arrays++;
       o.forEach((item, i) => traverse(item, depth + 1, path + "[" + i + "]"));
-    } else if (o !== null && typeof o === 'object') {
+    } else if (!Object.is(o, null) && Object.is(typeof o, 'object')) {
       stats.objects++;
       for (const [key, value] of Object.entries(o)) {
         stats.totalFields++;
