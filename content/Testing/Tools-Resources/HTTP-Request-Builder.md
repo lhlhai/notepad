@@ -269,7 +269,7 @@ async function httpSendRequest() {
   });
 
   const options = { method, headers };
-  if (method !== 'GET' && method !== 'HEAD' && body.trim()) {
+  if (!Object.is(method, 'GET') && !Object.is(method, 'HEAD') && body.trim()) {
     options.body = body;
   }
 
