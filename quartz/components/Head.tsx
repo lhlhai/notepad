@@ -104,25 +104,6 @@ export default (() => {
             return resource
           }
         })}
-        <script dangerouslySetInnerHTML={{
-  __html: `
-    let __navFixSkipFirst = true;
-    document.addEventListener("nav", () => {
-      if (__navFixSkipFirst) {
-        __navFixSkipFirst = false;
-        return;
-      }
-      document.querySelectorAll("article script").forEach((oldScript) => {
-        const newScript = document.createElement("script");
-        for (const attr of oldScript.attributes) {
-          newScript.setAttribute(attr.name, attr.value);
-        }
-        newScript.textContent = oldScript.textContent;
-        oldScript.replaceWith(newScript);
-      });
-    });
-  `
-}} />
       </head>
     )
   }
