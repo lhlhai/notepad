@@ -149,20 +149,35 @@ function compareText() {
   let i = 0, j = 0, l = 0;
 
   while (i < lines1.length || j < lines2.length) {
-    if (l < lcs.length && i < lines1.length && j < lines2.length && lines1[i] === lcs[l] && lines2[j] === lcs[l]) {
-      stats.same++;
-      html += `<tr><td class="line-number">${i + 1}</td><td class="line-number">${j + 1}</td><td>${escapeHtml(lines1[i])}</td></tr>`;
-      i++; j++; l++;
-    } else if (j < lines2.length && (l >= lcs.length || lines2[j] !== lcs[l])) {
-      stats.added++;
-      html += `<tr><td class="line-number">-</td><td class="line-number">${j + 1}</td><td class="line-added">+ ${escapeHtml(lines2[j])}</td></tr>`;
-      j++;
-    } else if (i < lines1.length && (l >= lcs.length || lines1[i] !== lcs[l])) {
-      stats.removed++;
-      html += `<tr><td class="line-number">${i + 1}</td><td class="line-number">-</td><td class="line-removed">- ${escapeHtml(lines1[i])}</td></tr>`;
-      i++;
-    }
+  const sameLine =
+    l < lcs.length &&
+    i < lines1.length &&
+    j < lines2.length &&
+    Object.is(lines1[i], lcs[l]) &&
+    Object.is(lines2[j], lcs[l]);
+
+  if (sameLine) {
+    stats.same++;
+    html += `<tr><td class="line-number">${i + 1}</td><td class="line-number">${j + 1}</td><td>${escapeHtml(lines1[i])}</td></tr>`;
+    i++;
+    j++;
+    l++;
+  } else if (
+    j < lines2.length &&
+    (l >= lcs.length || !Object.is(lines2[j], lcs[l]))
+  ) {
+    stats.added++;
+    html += `<tr><td class="line-number">-</td><td class="line-number">${j + 1}</td><td class="line-added">+ ${escapeHtml(lines2[j])}</td></tr>`;
+    j++;
+  } else if (
+    i < lines1.length &&
+    (l >= lcs.length || !Object.is(lines1[i], lcs[l]))
+  ) {
+    stats.removed++;
+    html += `<tr><td class="line-number">${i + 1}</td><td class="line-number">-</td><td class="line-removed">- ${escapeHtml(lines1[i])}</td></tr>`;
+    i++;
   }
+}
 
   html += "</table>";
   output.innerHTML = `<div style="margin-bottom:0.5rem;font-weight:600;">📊 Tổng kết: <span style="color:#28a745;">+${stats.added} dòng thêm</span> | <span style="color:#dc3545;">-${stats.removed} dòng xóa</span> | ✅ ${stats.same} dòng giống nhau</div>` + html;
