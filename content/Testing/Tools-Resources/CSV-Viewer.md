@@ -96,7 +96,12 @@ function parseCSV() {
   const statsEl = document.getElementById("csv-stats");
 
   if (!csvData.trim()) {
-    output.innerHTML = "<p style='color:#999;padding:1rem;'>Không có dữ liệu CSV để hiển thị.</p>";
+    const msg = document.createElement("p");
+    msg.style.color = "#999";
+    msg.style.padding = "1rem";
+    msg.textContent = "Không có dữ liệu CSV để hiển thị.";
+    output.innerHTML = "";
+    output.appendChild(msg);
     statsEl.style.display = "none";
     return;
   }
@@ -106,7 +111,12 @@ function parseCSV() {
   const validLines = lines.filter(line => line.trim() !== "");
 
   if (validLines.length === 0) {
-    output.innerHTML = "<p style='color:#999;padding:1rem;'>Không có dữ liệu CSV để hiển thị.</p>";
+    const msg = document.createElement("p");
+    msg.style.color = "#999";
+    msg.style.padding = "1rem";
+    msg.textContent = "Không có dữ liệu CSV để hiển thị.";
+    output.innerHTML = "";
+    output.appendChild(msg);
     statsEl.style.display = "none";
     return;
   }
@@ -123,9 +133,8 @@ function parseCSV() {
 
       if (inQuotes) {
         if (char === '"' && nextChar === '"') {
-          // Escaped quote
           currentField += '"';
-          i++; // skip next quote
+          i++;
         } else if (char === '"') {
           inQuotes = false;
         } else {
@@ -146,39 +155,69 @@ function parseCSV() {
     return result;
   }
 
-  // Parse header
   const headers = parseLine(validLines[0]);
 
-  // Build table
-  let html = '<table class="csv-table"><thead><tr>';
-  for (let h = 0; h < headers.length; h++) {
-    html += '<th>' + escapeHtml(headers[h]) + '</th>';
-  }
-  html += '</tr></thead><tbody>';
+  // Build table via DOM API (no HTML string concatenation)
+  const table = document.createElement("table");
+  table.className = "csv-table";
 
+  const thead = document.createElement("thead");
+  const headerRow = document.createElement("tr");
+  headers.forEach((h) => {
+    const th = document.createElement("th");
+    th.textContent = h;
+    headerRow.appendChild(th);
+  });
+  thead.appendChild(headerRow);
+  table.appendChild(thead);
+
+  const tbody = document.createElement("tbody");
   let rowCount = 0;
   for (let i = 1; i < validLines.length; i++) {
     const cells = parseLine(validLines[i]);
-    html += '<tr>';
+    const row = document.createElement("tr");
+
     for (let j = 0; j < headers.length; j++) {
-      html += '<td>' + escapeHtml(cells[j] || '') + '</td>';
+      const td = document.createElement("td");
+      td.textContent = cells[j] || "";
+      row.appendChild(td);
     }
-    // Handle extra cells beyond headers
     for (let j = headers.length; j < cells.length; j++) {
-      html += '<td>' + escapeHtml(cells[j] || '') + '</td>';
+      const td = document.createElement("td");
+      td.textContent = cells[j] || "";
+      row.appendChild(td);
     }
-    html += '</tr>';
+
+    tbody.appendChild(row);
     rowCount++;
   }
+  table.appendChild(tbody);
 
-  html += '</tbody></table>';
-  output.innerHTML = html;
+  output.innerHTML = "";
+  output.appendChild(table);
 
   // Show stats
   statsEl.style.display = "block";
-  statsEl.innerHTML = '📊 <strong>' + headers.length + '</strong> columns | <strong>' + rowCount + '</strong> rows | ' + (validLines.length - 1) + ' data lines parsed';
+  statsEl.innerHTML = "";
+  const strongCols = document.createElement("strong");
+  strongCols.textContent = headers.length;
+  const strongRows = document.createElement("strong");
+  strongRows.textContent = rowCount;
+
+  statsEl.append(
+    "📊 ",
+    strongCols,
+    " columns | ",
+    strongRows,
+    " rows | " + (validLines.length - 1) + " data lines parsed"
+  );
 }
 
+function clearCSV() {
+  document.getElementById("csv-data").value = "";
+  document.getElementById("csv-output").textContent = "Kết quả sẽ hiển thị ở đây...";
+  document.getElementById("csv-stats").style.display = "none";
+}
 function clearCSV() {
   document.getElementById("csv-data").value = "";
   document.getElementById("csv-output").innerHTML = "Kết quả sẽ hiển thị ở đây...";
