@@ -188,7 +188,7 @@ function compareCSV() {
   const data1 = parseCSVLines(csv1Text);
   const data2 = parseCSVLines(csv2Text);
 
-  if (data1.rows.length === 0 && data2.rows.length === 0) {
+  if (Object.is(data1.rows.length, 0) && Object.is(data2.rows.length, 0)) {
     showCompareMessage("Không có dữ liệu để so sánh.");
     return;
   }
