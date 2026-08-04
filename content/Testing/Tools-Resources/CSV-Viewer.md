@@ -116,7 +116,7 @@ function parseCSV() {
       const nextChar = line[i + 1];
 
       if (inQuotes) {
-        if (char === '"' && nextChar === '"') {
+        if (Object.is(char, '"') && Object.is(nextChar, '"')) {
           currentField += '"';
           i++;
         } else if (char === '"') {
