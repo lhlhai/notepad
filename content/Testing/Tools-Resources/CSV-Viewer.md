@@ -78,7 +78,8 @@ Công cụ này giúp bạn dễ dàng xem, phân tích và chỉnh sửa dữ l
 </div>
 
 <script>
-function parseCSV() {
+// CSV Viewer functions - attached to window for global access
+window.parseCSV = function() {
   const csvData = document.getElementById("csv-data").value;
   const output = document.getElementById("csv-output");
   const statsEl = document.getElementById("csv-stats");
@@ -193,12 +194,12 @@ function parseCSV() {
     strongRows,
     " rows | " + (validLines.length - 1) + " data lines parsed"
   );
-}
+};
 
-function clearCSV() {
+window.clearCSV = function() {
   document.getElementById("csv-data").value = "";
   document.getElementById("csv-output").textContent = "Kết quả sẽ hiển thị ở đây...";
   document.getElementById("csv-stats").style.display = "none";
-}
+};
 </script>
 </div>
