@@ -77,6 +77,12 @@ Công cụ phân tích cấu trúc JSON response từ API. Tự động đếm s
   margin: 2px 0;
   font-size: 0.75rem;
 }
+.tree-null-warning {
+  background: #fff3cd;
+  padding: 2px 4px;
+  border-radius: 3px;
+  font-size: 0.75rem;
+}
 </style>
 
 <div class="api-inspector-container">
@@ -260,9 +266,9 @@ function apiBuildTree(o, depth) {
       itemDiv.style.marginLeft = "1rem";
 
       const keySpan = document.createElement("span");
-      if (value === null) {
-        keySpan.className = "tree-null-warning";
-        keySpan.textContent = "⚠️ " + key;
+      if (value === null || (typeof value === 'object' && value !== null)) {
+        keySpan.className = "tree-key";
+        keySpan.textContent = key;
       } else {
         keySpan.className = "tree-key";
         keySpan.textContent = key;
