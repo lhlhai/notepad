@@ -18,6 +18,19 @@ Những trợ thủ đắc lực nằm ngay trên thanh công cụ của bạn.
 | **Clear Cache** | Xóa nhanh dữ liệu duyệt web | Đảm bảo bạn đang test trên phiên bản code mới nhất. |
 | **Wappalyzer** | Kiểm tra công nghệ website | Biết được web dùng React, Vue hay PHP để có chiến lược test phù hợp. |
 
+### Chrome Debug Mode (Remote Debugging)
+Khởi động Chrome với chế độ debug từ xa để kết hợp với automation tools:
+
+```bash
+# Windows
+start chrome --remote-debugging-port=9222 --user-data-dir="C:\Users\username\AppData\Local\Google\Chrome\User Data\Default"
+
+# Linux/Mac
+google-chrome --remote-debugging-port=9222 --user-data-dir="/home/username/chrome-profile"
+```
+
+> 💡 **Use case:** Kết nối Playwright/Selenium vào session Chrome đang mở sẵn để debug trực tiếp hoặc giữ trạng thái đăng nhập.
+
 ---
 
 ## 2. Công cụ Web hữu ích (Online Tools)

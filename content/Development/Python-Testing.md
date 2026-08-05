@@ -136,8 +136,14 @@ with socketserver.TCPServer(("", PORT), SPARequestHandler) as httpd:
 
 ### Simple HTTP server (Quick)
 ```bash
+# Start HTTP server on port 8000 (default)
 python -m http.server
+
+# Start HTTP server on custom port
+python -m http.server 8080
 ```
+
+> 💡 **Use case:** Nhanh chóng tạo một HTTP server cục bộ để test các file HTML/JS hoặc share file trong mạng nội bộ.
 
 ## 4. MCP Server
 ```bash

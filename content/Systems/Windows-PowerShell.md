@@ -30,9 +30,19 @@ setx ENV "%ENV%" /m
 Get-ChildItem -Recurse -Directory __pycache__ | Remove-Item -Recurse -Force
 ```
 
+### Remove `allure-results` recursively (PowerShell)
+```powershell
+Get-ChildItem -Recurse -Directory allure-results | Remove-Item -Recurse -Force
+```
+
 ### Remove `__pycache__` (CMD)
 ```cmd
 for /d /r . %d in (__pycache__) do @if exist "%d" rd /s /q "%d"
+```
+
+### Remove `allure-results` (CMD)
+```cmd
+for /d /r . %d in (allure-results) do @if exist "%d" rd /s /q "%d"
 ```
 
 ### Rename multiple files (Bash-style on Windows)

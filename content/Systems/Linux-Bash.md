@@ -27,6 +27,12 @@ find . -type d -exec rm {}/__init__.py \;
 
 # Remove __pycache__
 find . -type d -name "__pycache__" -exec rm -rf {} +
+
+# Remove allure-results
+find . -type d -name "allure-results" -exec rm -rf {} +
+
+# Quick cleanup: Remove both __pycache__ and allure-results
+find . -type d \( -name "__pycache__" -o -name "allure-results" \) -exec rm -rf {} +
 ```
 
 ### Search string excluding folders
