@@ -1,3 +1,1 @@
-(content/Testing/Tools-Resources/API-Response-Inspector.md, content/Testing/Tools-Resources/CSV-Compare.md, content/Testing/Tools-Resources/CSV-Viewer.md are all markdown files which are source/config files, and there are no build artifacts, dependencies, or temp files in the changes)
-
-(empty — output nothing)
+(content/Development/Python-Testing.md, content/Systems/Linux-Bash.md, content/Systems/Windows-PowerShell.md, content/Testing/Tools-Resources/Toolbox.md)
