@@ -18,6 +18,9 @@ Bộ sưu tập các prompts được tối ưu hóa cho các tác vụ QA/Testi
 *   **API Testing**: Tạo test scenarios cho API testing
 *   **Documentation**: Viết documentation, test plans
 
+### [🧪 Bruno + Copilot API Tests](./Bruno-Copilot-Tests.md)
+Hướng dẫn dùng GitHub Copilot (Agent mode) kết hợp Bruno Agent Skills (`bruno-collection-generator`, `bruno-test-writer`) để tự động sinh bộ sưu tập và test API từ ứng dụng FastAPI, sau đó chạy bằng Bruno CLI.
+
 ## 💡 Cách sử dụng AI hiệu quả
 
 ### 1. Viết Prompt rõ ràng
